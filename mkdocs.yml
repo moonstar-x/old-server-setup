@@ -1,0 +1,36 @@
+# Site Information
+site_name: Server Setup Guide
+site_description: My server setup guide for Ubuntu Server.
+site_author: moonstar-x
+site_url: https://moonstar-x.github.io/
+
+# Copyright
+copyright: 'Copyright &copy; 2018 moonstar-x'
+
+# Navigation
+nav:
+  - Home: index.md
+  - OS and Installation: os-and-installation.md
+  - Port Forwarding: port-forwarding.md
+  - Packages and Programs: packages-and-programs.md
+  - Discord Bots: discord-bots.md
+  - Game Servers: game-servers.md
+
+# Theme Customization
+theme:
+  name: null
+  custom_dir: 'mkdocs-material/material'
+  palette:
+    primary: 'orange'
+    accent: 'red'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  logo:
+    icon: 'device_hub'
+  language: 'en'
+  direction: 'ltr'
+  favicon: 'assets/images/favicon.ico'
+  feature:
+    tabs: false
+

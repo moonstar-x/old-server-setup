@@ -1,0 +1,2 @@
+# Server Setup Guide
+This is a small guide on setting up some services on a home server running Ubuntu Server. The site was built using [mkdocs](https://www.mkdocs.org/) and [squidfunk's mkdocs-material theme](https://github.com/squidfunk/mkdocs-material).
