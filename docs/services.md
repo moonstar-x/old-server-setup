@@ -269,23 +269,20 @@ Now, as a final step, add the firewall rule to allow *SMB* connections.
 ## Transmission
 **Transmission** is a torrent downloader that has the option to run in a CLI daemon, perfect for our little headless server.
 
-### Setting-up User
-In order to install this we need to make an user to better organize our storage and set up a password so we can log in as this new user.
-
-    sudo adduser --disabled-login transmission
-    sudo -i -u transmission
-
-Since the new user does not have anything in its *home* folder, we'll make the Downloads folder and quickly switch back to our administrator user.
-
-    mkdir Downloads && exit
-
 ### Installation
-Now, to download **Transmission**, we'll need to add a PPA source, update the sources and directly install.
+To install **Transmission**, we'll need to add a PPA source, update the sources and directly install.
 
     sudo add-apt-repository ppa:transmissionbt/ppa && sudo apt-get update
     sudo apt-get install transmission-cli transmission-common transmission-daemon
 
 ### Configuration
+Since our server OS is installed in a small SSD, we're going to use an internal HDD to store our downloads. I'll assume you already have the HDD mounted properly. For the sake of the example, we're going to mount our HDD in `/media/internal_sata`.
+
+We're going to create a **Downloads** folder and we'll grant it full permissions so we don't run into permissions issues when downloading.
+
+    mkdir /media/internal_sata/Downloads
+    sudo chmod 777 -R /media/internal/sata_Downloads
+
 Now to configure it we need to stop the **Transmission** service and edit the config file.
 
     sudo systemctl stop transmission-daemon.service
