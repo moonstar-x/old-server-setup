@@ -1,34 +1,36 @@
 # Discord Bots
-When hosting your own bots for Discord you'll need a bot token, which is generated when creating an application account on Discord. I won't get into further detail, but I'll leave a guide made by jagrosh:
+When hosting your own bots for Discord you'll need a bot token, which is generated when creating an application account on Discord. I won't get into further detail, but I'll leave a guide that I made previously for a bot that I made:
 
-* [Getting a bot token.](https://github.com/jagrosh/MusicBot/wiki/Getting-a-Bot-Token)
-* [Finding out your user ID.](https://github.com/jagrosh/MusicBot/wiki/Finding-Your-User-ID)
-* [Finding out your user ID.](https://github.com/jagrosh/MusicBot/wiki/Finding-Your-User-ID)
-* [Adding your bot to your server.](https://github.com/jagrosh/MusicBot/wiki/Adding-Your-Bot-To-Your-Server)
+* [Getting a bot token.](https://github.com/moonstar-x/discord-downtime-notifier/wiki/Getting-a-Discord-Bot-Token)
+* [Finding out your user ID.](https://github.com/moonstar-x/discord-downtime-notifier/wiki/Getting-User,-Channel-and-Server-IDs)
+* [Adding your bot to your server.](https://github.com/moonstar-x/discord-downtime-notifier/wiki/Adding-Your-Bot-To-Your-Server)
 
 The following guides are not limited to music bots, you can follow these guides for any kind of bot.
 
-## JDA Music Bot
-[jagrosh's Music Bot](https://github.com/jagrosh/MusicBot) made in java with JDA, a Discord API wrapper for java, is one of the best music bots I've seen out there, it does what it says and does it in a simple way - stream music to a Discord voice channel.
+## Setting-up User
+The following bots will be installed in a separate user space.
 
+    sudo adduser --disabled-login discord
+
+## JDA Music Bot
+[jagrosh's Music Bot](https://github.com/jagrosh/MusicBot) is made in java with JDA, a Discord API wrapper for java, is one of the best music bots I've seen out there, it does what it says and does it in a simple way - stream music to a Discord voice channel.
+
+### Installing Requirements
 To use this bot you'll need Java. To install it run the following:
 
     sudo apt-add-repository ppa:webupd8team/java
     sudo apt-get update
     sudo apt-get install oracle-java8-installer
 
-Now, to use this bot, we'll create a separate user for Discord, set a password for it and create a folder for our bot.
+### Installation
+We'll now download the latest version of [jagrosh's Music Bot](https://github.com/jagrosh/MusicBot/releases) (the example below is most likely outdated).
 
-    sudo adduser --disabled-login discord
-    sudo passwd discord
-    cd ~
+    sudo -i -u discord
     mkdir JDAMusicBot && cd JDAMusicBot
-
-We'll now download the latest version of [jagrosh's Music Bot](https://github.com/jagrosh/MusicBot/releases).
-
     wget https://github.com/jagrosh/MusicBot/releases/download/0.1.3/JMusicBot-0.1.3-Linux.jar
     mv JMusicBot-0.1.3-Linux.jar JMusicBot.jar
 
+### Configuration
 Once downloaded we'll create the config file.
 
     nano config.txt
@@ -38,8 +40,10 @@ Inside the configuration we'll add the following, make sure to add your own owne
     token=<your_token_here>
     owner=<your_owner_id>
     prefix=%
+    game="DEFAULT"
+    status=ONLINE
     songinstatus=true
-    altprefix=!
+    altprefix="NONE"
     stayinchannel=true
     maxtime=0
 
@@ -47,6 +51,7 @@ You can now run your Music Bot.
 
     java -jar JMusicBot.jar
 
+### Auto-starting
 We'll now create a service so the bot can autostart on login, but before creating it we'll create a simple script that we can use to start the bot instead of running java manually.
 
     nano start.sh
@@ -90,15 +95,17 @@ Once saved, start and enable the service.
 ## 24/7 Music Bot
 [Repulser's Moosic](https://github.com/Repulser/Moosic/) is a pretty good option for our 24/7 music bot that'll serve songs from a text file and stream them on a designated voice channel. Keep in mind that if you have limited bandwidth, you may want to think twice before hosting a 24/7 music bot that'll run even when nobody is in the channel (this should probably be a feature but, oh well...). The music bot is also made using JDA, meaning it's written in Java. Check [JDA Music Bot](#jda-music-bot) for any requirement you may need to fill before running this bot.
 
+### Installation
 We'll create a folder inside our *discord*'s home folder, make sure to run the following as *discord* user that we created above.
 
     mkdir Moosic && cd Moosic
 
-Now we'll download the bot executable and song list, make sure to get the [latest version](https://github.com/Repulser/Moosic/releases).
+Now we'll download the bot executable and song list, make sure to get the [latest version](https://github.com/Repulser/Moosic/releases) (again, the example below may be outdated).
 
     wget https://github.com/Repulser/Moosic/releases/download/5.1/moosic.jar
     wget https://github.com/Repulser/Moosic/releases/download/5.1/songs.txt
 
+### Configuration
 We'll need to create our configuration, create the following file:
 
     nano bot.cfg
@@ -110,8 +117,9 @@ And paste the following settings:
     voice_channel_id=<channel_id>
     volume=50
 
-If you need help looking for the voice channel ID, check out [this guide](https://github.com/Chikachi/DiscordIntegration/wiki/How-to-get-a-token-and-channel-ID-for-Discord).
+If you need help looking for the voice channel ID, check out [this guide](https://github.com/moonstar-x/discord-downtime-notifier/wiki/Getting-User,-Channel-and-Server-IDs).
 
+### Auto-starting
 Now we'll create a start script so we can then create a service, just like the previous bot, create the following file:
 
     nano start.sh
@@ -149,3 +157,64 @@ Once saved, start and enable the service.
 
     sudo systemctl start discord_moosic.service
     sudo systemctl enable discord_moosic.service
+
+## Text-to-Speech Bot
+### Installing Requirements
+The TTS bot that we're going to use requires [Node.js](https://nodejs.org/), for this we will install it:
+
+    curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+
+After executing these two commands, we will have access to the `npm` and `node` commands.
+
+### Installation
+To install the TTS bot, we will first clone the project from its repo from the **discord** user:
+
+    sudo -i -u discord
+    git clone https://github.com/moonstar-x/discord-tts-bot.git
+
+This will create a folder called discord-tts-bot which will have everything we need to install our bot.
+
+We can now access the folder and install the dependencies:
+
+    cd discord-tts-bot
+    npm install
+
+### Configuration
+Inside the folder we downloaded there is a *settings.json.example* file, we'll rename it and then we'll edit it:
+
+    mv settings.json.example settings.json
+    nano settings.json
+
+In here, change the settings to your own liking.
+
+After everything has been set-up, you can start the bot by inputting:
+    
+    npm start
+
+### Auto-starting
+Just like for the previous bots, we want this one to auto-start on system boot. We'll make a *systemd* service. For this, create the following file using a sudoer user account:
+
+    sudo nano /etc/systemd/system/discord_tts.service
+
+Inside the editor, paste the following text:
+
+    [Unit]
+    Description=Discord TTS
+    After=network.target
+
+    [Service]
+    Type=simple
+    User=discord
+    WorkingDirectory=/home/discord/discord-tts-bot/
+    ExecStart=/usr/bin/npm start
+    Restart=always
+
+    [Install]
+    WantedBy=multi-user.target
+
+Now, we refresh, start and enable the service.
+
+    sudo systemctl daemon-reload
+    sudo systemctl start discord_tts.service
+    sudo systemctl enable discord_tts.service

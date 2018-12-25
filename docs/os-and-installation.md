@@ -1,6 +1,6 @@
 # OS and Installation
 ## Ubuntu Server 18.04 LTS 64-bit
-Keep in mind this guide is for a server running a Ubuntu/Debian flavored distro. For performance and compatibility reasons, the OS of choice is [Ubuntu Server 18.04 LTS 64-bit](https://www.ubuntu.com/server) in headless mode, the installation is a quick and easy process that is assisted by it's own install wizard. When asked what snapshot (initial server configuration) should be installed I choose none or just default.
+Keep in mind this guide is for a server running an Ubuntu/Debian flavored distro. For performance and compatibility reasons, the OS of choice is [Ubuntu Server 18.04 LTS 64-bit](https://www.ubuntu.com/server) in headless mode. The installation is a quick and easy process that is assisted by it's own install wizard. When asked what snapshot (initial server configuration) should be installed, simply choose none or just default.
 
 As a general rule of thumb, after installing the OS it is recommended to update the sources and packages:
 
@@ -16,7 +16,7 @@ A little issue that comes with Ubuntu Server is the limited *apt* sources that c
 
 Once the editor opens up, paste the following and save the file:
 
-    #deb cdrom:[Ubuntu 18.04 LTS _Bionic Beaver_ - Release amd64 (20180426)]/ bionic main restricted
+    # deb cdrom:[Ubuntu 18.04 LTS _Bionic Beaver_ - Release amd64 (20180426)]/ bionic main restricted
     # See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to
     # newer versions of the distribution.
     deb http://us.archive.ubuntu.com/ubuntu/ bionic main restricted
@@ -70,6 +70,3 @@ Once the editor opens up, paste the following and save the file:
 To finish, refresh your sources.
 
     sudo apt-get update
-
-## ~/.bashrc
-TEXT GOES HERE TEXT GOES HERE TEXT GOES HERE TEXT GOES HERE TEXT GOES HERE TEXT GOES HERE TEXT GOES HERE TEXT GOES HERE

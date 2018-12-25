@@ -11,8 +11,10 @@ copyright: 'Copyright &copy; 2018 moonstar-x'
 nav:
   - Home: index.md
   - OS and Installation: os-and-installation.md
-  - Port Forwarding: port-forwarding.md
+  - Networking: networking.md
+  - OpenVPN: openvpn.md
   - Packages and Programs: packages-and-programs.md
+  - Services: services.md
   - Discord Bots: discord-bots.md
   - Game Servers: game-servers.md
 
@@ -27,7 +29,7 @@ theme:
     text: 'Roboto'
     code: 'Roboto Mono'
   logo:
-    icon: 'device_hub'
+    icon: 'whatshot'
   language: 'en'
   direction: 'ltr'
   favicon: 'assets/images/favicon.ico'
