@@ -19,6 +19,7 @@ Here's a table that contains the required default ports that need to be forwarde
 | Assetto Corsa               | 9600        | TCP/UDP  |
 | Assetto Corsa - HTTP        | 8081        | TCP      |
 | Minecraft                   | 25565       | TCP      |
+| Screeps                     | 21025       | TCP      |
 
 If you don't know what internal IP the server is running on you can always run:
 
