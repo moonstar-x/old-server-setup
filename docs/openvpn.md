@@ -1,7 +1,9 @@
 # OpenVPN
+
 This section of the guide will focus on installing a VPN service in the server. This process can be a little bit tedious and even complicated, it is all explained here step by step.
 
 ## Installation
+
 We'll install two packages and make a folder.
 
     sudo apt-get install openvpn easy-rsa
@@ -9,6 +11,7 @@ We'll install two packages and make a folder.
     cd ~/openvpn-ca
 
 ## Setting Up and Building Certificate Authority
+
 We'll change the certificate authority variables.
 
     nano vars
@@ -33,7 +36,8 @@ We can now build our certificate authority (hit enter for everything, leave any 
 
     ./build-ca
 
-## Building Server Certificate, Key and Encryption.
+## Building Server Certificate, Key and Encryption
+
 We now need to generate our server and Diffie-Hellman keys and our HMAC signature (leave blank when asked for challenge password).
 
     ./build-key-server server BLANK PASS
@@ -41,8 +45,10 @@ We now need to generate our server and Diffie-Hellman keys and our HMAC signatur
     openvpn --genkey --secret keys/ta.key
 
 ## Configuring the VPN Server
+
 We'll transfer the server keys and certificates generated previously to `/etc/openvpn`.
 
+    cd keys
     sudo cp ca.crt server.crt server.key ta.key dh2048.pem /etc/openvpn
 
 Now we'll create a server configuration file, you can look up for server configurations, base yourself from the default one or just copy my own. If you want to base yourself from the default one, run:
@@ -83,7 +89,14 @@ My own configuration goes as follows:
     user nobody
     group nogroup
 
+    # ROUTE
+    push "remote-gateway def1"
+    push "dhcp-option DNS 8.8.8.8"
+    push "dhcp-option DNS 8.8.4.4"
+    keepalive 10 60
+
 ## Allow IP Forwarding
+
 In order for the server to forward inbound VPN connections to the main network interface the server uses, we'll need to set up IP forwarding. Access the following file:
 
     sudo nano /etc/sysctl.conf
@@ -152,6 +165,7 @@ Now to add the firewall rules to enable connections to the VPN and allow any con
     sudo ufw allow out on tun0
 
 ## Starting the Server
+
 The server is ready to start (make sure to replace server with whatever server name you used when creating the server keys):
 
     sudo systemctl start openvpn@server
@@ -163,6 +177,7 @@ To enable the service so the server autostarts on login:
     sudo systemctl enable openvpn@server
 
 ## Creating a Client Base Configuration
+
 The server isn't ready yet, we still need to create client keys, certificates and profiles. To make this job a lot easier we'll create a base configuration which is going to serve as the base for all clients generated and we'll create a client generating script. For the base configuration we'll create some folders and the base configuration itself.
 
     mkdir -p ~/client-configs/files
@@ -172,14 +187,15 @@ The server isn't ready yet, we still need to create client keys, certificates an
 
 In the text editor you'll see that a configuration is already there, we'll need to make some changes in there to suit our needs.
 
-  * Firstly, look for `remote server_IP_address 1194` and change `server_IP_address` to your server's external IP address, you can add your numerical IP address (xxx.xxx.xxx.xxx) only if it's static, if that's not your case I recommend you checking out the following: [NO-IP DUC](https://moonstar-x.github.io/server-setup/services/#no-ip-duc).
-  * We'll not uncomment the following items: `user nobody`, `group nogroup` and `comp-lzo`.
-  * Now we need to comment the following items: `ca ca.crt`, `cert client.crt` and `key client.key`.
-  * We need to add the following: `cipher AES-256-CBC`, `auth SHA256` and `key-direction 1`.
+* Firstly, look for `remote server_IP_address 1194` and change `server_IP_address` to your server's external IP address, you can add your numerical IP address (xxx.xxx.xxx.xxx) only if it's static, if that's not your case I recommend you checking out the following: [NO-IP DUC](https://moonstar-x.github.io/server-setup/services/#no-ip-duc).
+* We'll not uncomment the following items: `user nobody`, `group nogroup` and `comp-lzo`.
+* Now we need to comment the following items: `ca ca.crt`, `cert client.crt` and `key client.key`.
+* We need to add the following: `cipher AES-256-CBC`, `auth SHA256` and `key-direction 1`.
 
 Save and quit the file.
 
 ## Client Generating Script
+
 Create a script in the `~/client-configs` folder:
 
     nano ~/client-configs/make_config.sh
@@ -211,6 +227,7 @@ To make the following script executable:
     chmod 700 ~/client-configs/make_config.sh
 
 ## Creating Keys, Certificates and Profiles for Clients
+
 You'll need to repeat this process for every client that will use the VPN, client profiles are not interchangeable, meaning that each client needs to use it's own generated profile and set of keys, trying to use a single profile for multiple devices will result in issues when connecting to the VPN. We'll go to the `~/openvpn-ca` folder where all our keys are saved and source our variables.
 
     cd ~/openvpn-ca
@@ -227,5 +244,12 @@ Once we've generated all the client keys and certificates we need, we'll go back
 
 Our client profiles will be saved in the `./files` folder.
 
+## Tunnel all traffic through the VPN
+
+My VPN configuration requires me to have two profiles, one where I can connect to my self-hosted services through a VPN and one where I can route all my traffic through the VPN. To route all the traffic to the VPN, simply copy your client profile and add the following line to the config:
+
+    redirect-gateway def1
+
 ## Connecting to the VPN
+
 To connect to the VPN your client device will need [OpenVPN](https://openvpn.net/) installed, you can find it for almost any platform. You'll need to transfer from the server to the client device their respective profile: `~/client-configs/files/$CLIENT.ovpn` and the **ta.key** file `~/openvpn-ca/keys/ta.key` (this seems to be only required on mobile clients but chances are your desktop client may need it as well). When connecting to the VPN, the client will receive it's own virtual private IP (10.8.0.x), the server's IP is generally (10.8.0.1). You can now establish connections to the server that are not port forwarded by the router (Samba/CIFS for example).

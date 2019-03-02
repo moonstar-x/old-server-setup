@@ -2,29 +2,65 @@
 site_name: Server Setup Guide
 site_description: My server setup guide for Ubuntu Server.
 site_author: moonstar-x
-site_url: https://moonstar-x.github.io/
+site_url: https://moonstar.greencoaststudios.com
+
+# Repo
+repo_name: "GitHub: moonstar-x"
+repo_url: "https://github.com/moonstar-x"
+edit_uri: ""
+
+# Social
+extra:
+  social:
+    - type: "github"
+      link: "https://github.com/moonstar-x"
+    - type: "reddit"
+      link: "https://www.reddit.com/user/moonstar-x"
+    - type: "globe"
+      link: "https://moonstar.greencoaststudios.com"
 
 # Copyright
-copyright: 'Copyright &copy; 2018 moonstar-x'
+copyright: 'Copyright &copy; 2018 - 2019 moonstar-x'
 
 # Navigation
 nav:
-  - Home: index.md
-  - OS and Installation: os-and-installation.md
-  - Networking: networking.md
-  - OpenVPN: openvpn.md
-  - Packages and Programs: packages-and-programs.md
-  - Services: services.md
-  - Discord Bots: discord-bots.md
-  - Game Servers: game-servers.md
+  - Setting Up:
+    - Introduction: index.md
+    - OS and Installation: os-and-installation.md
+    - Packages and Programs: packages-and-programs.md
+    - Networking: networking.md
+    - OpenVPN: openvpn.md
+  - Services:
+    - Teamspeak 3: services/teamspeak.md
+    - NO-IP DUC: services/no-ip.md
+    - Squid: services/squid.md
+    - Plex: services/plex.md
+    - Samba: services/samba.md
+    - Transmission: services/transmission.md
+  - Discord Bots:
+    - Setting Up: discord-bots/setting-up.md
+    - JDA Music Bot: discord-bots/jda-music-bot.md
+    - 24/7 Music Bot: discord-bots/moosic.md
+    - Text-to-Speech Bot: discord-bots/tts-bot.md
+  - Game Servers:
+    - SteamCMD: game-servers/steamcmd.md
+    - Arma 3: game-servers/arma3.md
+    - Assetto Corsa: game-servers/assetto-corsa.md
+    - Minecraft: game-servers/minecraft.md
+    - Screeps: game-servers/screeps.md
+    - FastDL: game-servers/fastdl.md
+    - Counter-Strike 1.6: game-servers/cstrike.md
+    - Deathmatch Classic: game-servers/dm-classic.md
+    - No More Room in Hell: game-servers/nmrih.md
+    - Left 4 Dead 2: game-servers/left4dead2.md
 
 # Theme Customization
 theme:
   name: null
   custom_dir: 'mkdocs-material/material'
   palette:
-    primary: 'orange'
-    accent: 'red'
+    primary: 'deep purple'
+    accent: 'pink'
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
@@ -34,5 +70,10 @@ theme:
   direction: 'ltr'
   favicon: 'assets/images/favicon.ico'
   feature:
-    tabs: false
+    tabs: true
+
+# Extensions
+markdown_extensions:
+  - admonition
+
 

@@ -1,4 +1,5 @@
 # Networking
+
 Here's a table that contains the required default ports that need to be forwarded on the router (and allowed by the firewall) so the services are accessible from outside the private network. Ports can change if desired, port forwarding rules should be set up accordingly.
 
 ## Port Forwarding Table
@@ -26,9 +27,11 @@ If you don't know what internal IP the server is running on you can always run:
     ifconfig
 
 ## UFW
-**ufw** is a friendly frontend for **iptables** that makes it a lot easier to add connection rules to your firewall. One of the many wonders of **ufw** is the ability to add connection rules by specifying service names rather than ports (we'll see this when we'll set up the firewall rules for the next services). 
+
+**ufw** is a friendly frontend for **iptables** that makes it a lot easier to add connection rules to your firewall. One of the many wonders of **ufw** is the ability to add connection rules by specifying service names rather than ports (we'll see this when we'll set up the firewall rules for the next services).
 
 ### Installation
+
 We'll need to install **ufw** and set it up.
 
     sudo apt-get install ufw
@@ -45,25 +48,31 @@ A very good command to check **ufw**'s status (if it's enabled or disabled) and 
     sudo ufw status
 
 ## SSH
+
 ### Installation
+
 Since the server will run in headless mode, it would be very useful to be able to access it remotely from within (and even outside) the network. We'll use **OpenSSH**, it is generally installed with the OS but in case that it isn't, you can install it by running:
 
     sudo apt-get install openssh-client openssh-server
 
 ### Setting-up
+
 We now need to allow SSH connections through the firewall so we can access the server.
 
     sudo ufw allow ssh
 
 ### Google Authentication (2FA)
+
 Two Factor Authentication has become a must-have in terms of account security, almost all services out there have the option to add this security measure to ensure account security. Luckily, we can implement our own Two Factor Authentication to access the server through *SSH*.
 
 #### Installation
+
 To enable *2FA*, we'll need to install the following package:
 
     sudo apt-get install libpam-google-authenticator
 
 #### Setting-up
+
 To set it up, simply run:
 
     google-authenticator
@@ -96,6 +105,8 @@ At the end of the file, add the following line:
 Save and close the file.
 
 #### Testing
+
 In order to test that *2FA* works properly, open up a new ssh session without closing the previous one and try logging in, you'll be prompted for your user password and for the *2FA* code which is available on your phone.
 
-> **Notice**: When using *2FA* for *SSH*, all the users in the server will need to set-it up, otherwise they won't be able to access their accounts. In case you get locked out from one of these users, you can always login to a sudoer account (usually the admin one which is added when installing the OS) and force-login with: ```sudo -i -u <user>```.
+!!! note "Notice:"
+    When using *2FA* for *SSH*, all the users in the server will need to set-it up, otherwise they won't be able to access their accounts. In case you get locked out from one of these users, you can always login to a sudoer account (usually the admin one which is added when installing the OS) and force-login with: ```sudo -i -u <user>```.

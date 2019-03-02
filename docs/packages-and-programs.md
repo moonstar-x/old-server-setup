@@ -1,7 +1,9 @@
 # Packages and Programs
+
 This is a list that contains a number of useful packages and programs that will become helpful when using the server.
 
 ## Screen
+
 **Screen** is a wonderful tool capable of improving multitasking on a single shell window with the ability to *background* processes. It also lets you recover shell windows when there's a connection loss.
 
 ### Installation
@@ -9,6 +11,7 @@ This is a list that contains a number of useful packages and programs that will 
     sudo apt-get install screen
 
 ### Usage
+
 At first it may seem a little complicated and maybe even intimidating to use this tool but once you get used to it you'll realize how useful it really is.
 
 First start up **screen**, type:
@@ -29,11 +32,13 @@ To reattach to a *screen*:
     screen -r <screen pid>
 
 ## VirtualBox
+
 **VirtualBox** is a machine virtualization program which has the option to run in headless mode (pretty useful in this case), which directs all display and controls through an RDP connection. Not only can we run some VM's to run certain services that may need a dedicated environment we can also "portabilize" these servers, making it easier to back them up in case something goes wrong.
 
 In this case we'll use a VM to manage our router in a graphical environment without the need to install a DE or WM on the server (since we want it to remain headless). This VM doesn't require to run 24/7 and ends up being pretty useful considering the *only* alternative would be to forward **X11** through **SSH** which is unstable and literally unusable in high latency connections.
 
 ### Installation
+
 Firstly we need to install some initial packages and reboot the server.
 
     sudo apt install build-essential dkms
@@ -56,12 +61,17 @@ Before creating/running our VM's we'll need to add our user to the *vboxusers* u
 
     sudo adduser $USER vboxusers
 
-We're not there yet, we still need to install the extension that will let VirtualBox run a VRDP server so we can use the VM remotely through an RDP connection. [Download the latest VirtualBox Extension Pack from Oracle's official site](https://www.virtualbox.org/wiki/Downloads). Copy the link, download through *wget* and install. (Keep in mind the example below may show an outdated and probably unavailable link.)
+We're not there yet, we still need to install the extension that will let VirtualBox run a VRDP server so we can use the VM remotely through an RDP connection. [Download the VirtualBox Extension Pack corresponding to your version from Oracle's official site](https://download.virtualbox.org/virtualbox/). To check your VirtualBox version, run:
+
+    vboxmanage --version
+
+Copy the link, download through *wget* and install. (Keep in mind the example may show a link uncompatible with your VirtualBox version).
 
     wget https://download.virtualbox.org/virtualbox/5.2.16/Oracle_VM_VirtualBox_Extension_Pack-5.2.16.vbox-extpack
     sudo VBoxManage extpack install Oracle_VM_VirtualBox_Extension_Pack-5.2.16.vbox-extpack
 
 ### Creating a VM
+
 Creating a VM is done through a series of commands, the process can be a little long to write so keep an eye of what you're about to input in your terminal window. As an example we'll install [Lubuntu 18.04 64-bit](https://lubuntu.net/downloads/). Download the *iso* file and keep it somewhere (for example in **~/Downloads**).
 
 Before we begin, we need to see what is our network interface, which is usually called *eth0 enp0s3 wlan0* etc, depending on how many interfaces the server has or interface type. To see your interface name type in console:
@@ -97,6 +107,7 @@ That's it, the VM is ready to be used, but before we go ahead and run it, we nee
     sudo ufw allow 3389/tcp
 
 ### Running the VM
+
 You can start your Headless VM with the following (keep in mind to replace with your own VM name):
 
     VBoxHeadless --startvm "Lubuntu"
@@ -109,12 +120,11 @@ Should you need to power off, reset, suspend your VM, use the following:
     VBoxManage controlvm "Lubuntu" pause
     VBoxManage controlvm "Lubuntu" reset
 
-Here's a little example of how the VM runs in **RDP** (Yes, it's a VM running under a VM.)
-![Screenshot](./img/VM.png)
-
 ## Others
+
 These are other packages which may be required by the services that run on the machine.
 
-    sudo apt-get install lib32gcc1 ranger unzip wget
+    sudo apt-get install lib32gcc1 ranger unzip wget thunar
 
-> **Note**: **lib32gcc1** is required by **SteamCMD** to be able to properly run certain game servers on a 64-bit architecture.
+!!! note
+     **lib32gcc1** is required by **SteamCMD** to be able to properly run certain game servers on a 64-bit architecture.
