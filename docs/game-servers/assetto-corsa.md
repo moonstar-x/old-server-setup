@@ -68,7 +68,7 @@ You can start up the server with:
 
 ## Windows Virtual Machine Alternative
 
-The biggest downside of running the server through a Windows VM is the "wasted" disk space, since you need to count the Windows instalallation and the Assetto Corsa game binaries which both sumed take around 40 GB. The great advantage that this has though, is the ease of configuration for custom content and multiple server configurations thanks to the nice server manager GUI. For this reason, I have opted for this option but you can always choose the one you prefer.
+The biggest downside of running the server through a Windows VM is the "wasted" disk space, since you need to count the Windows instalallation and the Assetto Corsa game binaries which both summed take around 40 GB. The great advantage that this has though, is the ease of configuration for custom content and multiple server configurations thanks to the nice server manager GUI. For this reason, I have opted for this option but you can always choose the one you prefer.
 
 ### Installing the Virtual Machine
 
@@ -86,7 +86,7 @@ To set-up the VM (make sure to change the settings to your needs):
 
     vboxmanage createvm --name "Assetto-win" --register
     vboxmanage modifyvm "Assetto-win" --memory 2048 --acpi on --ioapic on --boot1 dvd --nic1 bridged --bridgeadapter1 enp0s3 --nictype1 82540EM --vram 128 --cpus 2 --vrde on
-    vboxmanage createhd --filename ~/VirtualBox\ VMs/Assetto-win/assetto-win.vdi --size 60000
+    vboxmanage createhd --filename ~/VirtualBox\ VMs/Assetto-win/assetto-win.vdi --size 100000
     vboxmanage storagectl "Assetto-win" --name "IDE Controller" --add ide
     vboxmanage storageattach "Assetto-win" --storagectl "IDE Controller" --port 0 --device 0 --type hdd --medium ~/VirtualBox\ VMs/Assetto-win/assetto-win.vdi
     vboxmanage storageattach "Assetto-win" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium ~/Downloads/Windows7.iso
@@ -110,7 +110,7 @@ To install the server we'll need to download [SteamCMD](https://steamcdn-a.akama
 For *SteamCMD*, we'll create a folder in our main drive `C:\steamcmd` and we'll add this folder to our path:
 
 1. Open the Start Menu, right click *My Computer* and select *Properties*.
-2. On the left tab select *Advanced system setitns* and click on *Environment Variables...*.
+2. On the left tab select *Advanced system settings* and click on *Environment Variables...*.
 3. On the *Path* variable, add the following: `;C:\steamcmd`.
 
 Now that *SteamCMD* is in our *Path*, we can easily run it through a command line prompt directly with the `steamcmd` command. We'll use a small *bat* script to download and update *Assetto Corsa*. Open up a notepad and save it as `update_assetto.bat`. Inside the text editor add the following text (make sure to replace your *%username%* with your actual username):

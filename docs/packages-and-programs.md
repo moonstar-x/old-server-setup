@@ -65,7 +65,7 @@ We're not there yet, we still need to install the extension that will let Virtua
 
     vboxmanage --version
 
-Copy the link, download through *wget* and install. (Keep in mind the example may show a link uncompatible with your VirtualBox version).
+Copy the link, download through *wget* and install. (Keep in mind the example may show a link incompatible with your VirtualBox version).
 
     wget https://download.virtualbox.org/virtualbox/5.2.16/Oracle_VM_VirtualBox_Extension_Pack-5.2.16.vbox-extpack
     sudo VBoxManage extpack install Oracle_VM_VirtualBox_Extension_Pack-5.2.16.vbox-extpack

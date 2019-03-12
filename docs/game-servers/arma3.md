@@ -231,7 +231,7 @@ As an example, for the **CBA_A3** mod:
 
 ### Updating Mods
 
-For the sake of simplicity we will just use a simple *runscript* instead of a full-fledged wrapper script. For this we will go to directory where *SteamCMD* is installed and we will create our little *runscript*:
+For the sake of simplicity we will just use a simple *run-script* instead of a full-fledged wrapper script. For this we will go to directory where *SteamCMD* is installed and we will create our little *run-script*:
 
     nano update_arma3.txt
 
@@ -248,7 +248,7 @@ Inside the editor, paste the following, for each mod that you want to download/u
     workshop_download_item 107410 333310405
     quit
 
-Now, we can make a small *bash script* so that we can easily run this *runscript*.
+Now, we can make a small *bash script* so that we can easily run this *run-script*.
 
     nano update_arma3.sh
 

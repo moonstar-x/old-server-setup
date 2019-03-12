@@ -77,4 +77,4 @@ After uploading all your content to your *FTP* server, head over to the *server.
     sv_allowupload 1
     sv_downloadurl "https://<sitename>.000webhostapp.com/<gamename>/"
 
-Now everytime a player connects to your server and needs to download the required content they'll download it through the *FastDL* instead of the server, putting less strain on the game server this way.
+Now every time a player connects to your server and needs to download the required content they'll download it through the *FastDL* instead of the server, putting less strain on the game server this way.

@@ -172,7 +172,7 @@ The server is ready to start (make sure to replace server with whatever server n
 
 If there was no issues you'll be able to see a new interface called `tun0` when using `ifconfig`. If that isn't the case then most likely your server configuration is causing issues.
 
-To enable the service so the server autostarts on login:
+To enable the service so the server auto-starts on login:
 
     sudo systemctl enable openvpn@server
 

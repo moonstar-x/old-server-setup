@@ -37,6 +37,7 @@ nav:
     - Plex: services/plex.md
     - Samba: services/samba.md
     - Transmission: services/transmission.md
+    - Nextcloud: services/nextcloud.md
   - Discord Bots:
     - Setting Up: discord-bots/setting-up.md
     - JDA Music Bot: discord-bots/jda-music-bot.md
