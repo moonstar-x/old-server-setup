@@ -93,7 +93,6 @@ My own configuration goes as follows:
     push "remote-gateway def1"
     push "dhcp-option DNS 8.8.8.8"
     push "dhcp-option DNS 8.8.4.4"
-    keepalive 10 60
 
 ## Allow IP Forwarding
 

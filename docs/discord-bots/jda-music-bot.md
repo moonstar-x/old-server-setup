@@ -16,8 +16,8 @@ We'll now download the latest version of [jagrosh's Music Bot](https://github.co
 
     sudo -i -u discord
     mkdir JDAMusicBot && cd JDAMusicBot
-    wget https://github.com/jagrosh/MusicBot/releases/download/0.1.3/JMusicBot-0.1.3-Linux.jar
-    mv JMusicBot-0.1.3-Linux.jar JMusicBot.jar
+    wget https://github.com/jagrosh/MusicBot/releases/download/0.2.2/JMusicBot-0.2.2.jar
+    mv JMusicBot-0.2.2.jar JMusicBot.jar
 
 ## Configuration
 
@@ -66,14 +66,14 @@ Insert the following in the editor:
     [Unit]
     Description=Discord JDA Music Bot
     After=network.target
-
+    
     [Service]
     Type=simple
     User=discord
     WorkingDirectory=/home/discord/JDAMusicBot
     ExecStart=/home/discord/JDAMusicBot/start.sh
     Restart=always
-
+    
     [Install]
     WantedBy=multi-user.target
 

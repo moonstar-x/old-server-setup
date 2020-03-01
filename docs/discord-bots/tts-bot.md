@@ -25,7 +25,7 @@ We can now access the folder and install the dependencies:
 
 ## Configuration
 
-Inside the folder we downloaded there is a *settings.json.example* file, we'll rename it and then we'll edit it:
+Inside the `config` folder there is a *settings.json.example* file, we'll rename it and then we'll edit it:
 
     mv settings.json.example settings.json
     nano settings.json
