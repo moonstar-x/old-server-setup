@@ -59,8 +59,7 @@ nav:
 
 # Theme Customization
 theme:
-  name: null
-  custom_dir: 'mkdocs-material/material'
+  name: material
   palette:
     primary: 'deep purple'
     accent: 'pink'

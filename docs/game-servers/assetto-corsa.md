@@ -74,7 +74,7 @@ The biggest downside of running the server through a Windows VM is the "wasted" 
 
 For the virtual machine we're going to use VirtualBox, I'm assuming you already have it installed but in case you haven't check [this section of the guide](https://moonstar.greencoaststudios.com/server-setup/packages-and-programs/#virtualbox).
 
-We're going to install Windows 7 Home Basic, we're going to give it 2GB or RAM, 60GB of disk space and access to 2 CPU cores. We're going to do this on the *steam*, for this, we'll need to add the *steam* user to the *vboxusers* group.
+We're going to install Windows 7 Home Basic, we're going to give it 2GB or RAM, 60GB of disk space and access to 2 CPU cores. We're going to do this on the *steam* user, for this, we'll need to add the *steam* user to the *vboxusers* group.
 
     sudo adduser steam vboxusers
 
