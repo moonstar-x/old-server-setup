@@ -70,7 +70,7 @@ theme:
     icon: 'whatshot'
   language: 'en'
   direction: 'ltr'
-  favicon: 'assets/images/favicon.ico'
+  favicon: 'assets/favicon.ico'
   feature:
     tabs: true
 
