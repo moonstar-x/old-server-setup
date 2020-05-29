@@ -79,10 +79,25 @@ theme:
 # Extensions
 markdown_extensions:
   - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.mark
+  - pymdownx.tabbed
+  - pymdownx.tasklist
+  - pymdownx.betterem
 
 # Plugins
 plugins:
   - search
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      type: date
 
 # Google Analytics
 google_analytics:
