@@ -2,34 +2,34 @@
 site_name: Server Setup Guide
 site_description: My server setup guide for Ubuntu Server.
 site_author: moonstar-x
-site_url: https://moonstar.greencoaststudios.com
+site_url: https://moonstar.greencoaststudios.com/server-setup/
 
 # Repo
-repo_name: "GitHub: moonstar-x"
-repo_url: "https://github.com/moonstar-x"
-edit_uri: ""
+repo_name: 'GitHub: moonstar-x'
+repo_url: https://github.com/moonstar-x
+edit_uri: ''
 
 # Social
 extra:
   social:
-    - type: "github"
-      link: "https://github.com/moonstar-x"
-    - type: "reddit"
-      link: "https://www.reddit.com/user/moonstar-x"
-    - type: "globe"
-      link: "https://moonstar.greencoaststudios.com"
+    - icon: fontawesome/brands/github
+      link: https://github.com/moonstar-x
+    - icon: fontawesome/brands/reddit
+      link: https://www.reddit.com/user/moonstar-x
+    - icon: fontawesome/solid/globe
+      link: https://moonstar.greencoaststudios.com
 
 # Copyright
-copyright: 'Copyright &copy; 2018 - 2019 moonstar-x'
+copyright: Copyright &copy; 2018 - 2020 moonstar-x
 
 # Navigation
 nav:
+  - Home: index.md
   - Setting Up:
-    - Introduction: index.md
-    - OS and Installation: os-and-installation.md
-    - Packages and Programs: packages-and-programs.md
-    - Networking: networking.md
-    - OpenVPN: openvpn.md
+    - OS and Installation: setting-up/os-and-installation.md
+    - Packages and Programs: setting-up/packages-and-programs.md
+    - Networking: setting-up/networking.md
+    - OpenVPN: setting-up/openvpn.md
   - Services:
     - Teamspeak 3: services/teamspeak.md
     - NO-IP DUC: services/no-ip.md
@@ -61,24 +61,30 @@ nav:
 theme:
   name: material
   palette:
-    primary: 'deep purple'
-    accent: 'pink'
+    scheme: slate
+    primary: deep purple
+    accent: purple
   font:
-    text: 'Roboto'
-    code: 'Roboto Mono'
-  logo:
-    icon: 'whatshot'
-  language: 'en'
-  direction: 'ltr'
-  favicon: 'assets/favicon.ico'
-  feature:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    logo: fontawesome/solid/star
+    repo: fontawesome/brands/github
+  language: en
+  direction: ltr
+  favicon: assets/favicon.ico
+  features:
     tabs: true
 
 # Extensions
 markdown_extensions:
   - admonition
 
+# Plugins
+plugins:
+  - search
+
 # Google Analytics
 google_analytics:
-  - 'UA-167966432-1'
-  - 'auto'
+  - UA-167966432-1
+  - auto
