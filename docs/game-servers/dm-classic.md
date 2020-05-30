@@ -12,7 +12,8 @@ app_update 90 validate
 
 ## Configuration
 
-TBD.
+!!! info
+    This section is still under progress.
 
 ## AMX
 
@@ -75,7 +76,8 @@ Replace `STEAM:0:1:23456789` with your **STEAMID32* which you can find [here](ht
 
 ### Adding Plugins
 
-TBD.
+!!! info
+    This section is still under progress.
 
 ## Running the Server
 

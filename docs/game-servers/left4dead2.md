@@ -73,7 +73,8 @@ STEAM_0:1:23456789  99:z
 
 ### Adding Plugins
 
-TBD.
+!!! info
+    This section is still under progress.
 
 ## Running the Server
 
