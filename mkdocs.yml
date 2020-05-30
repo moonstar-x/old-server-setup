@@ -86,7 +86,6 @@ theme:
 # Extensions
 markdown_extensions:
   - admonition
-  - meta
   - codehilite:
       guess_lang: false
   - toc:
