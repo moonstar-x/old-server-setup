@@ -56,6 +56,7 @@ nav:
     - Deathmatch Classic: game-servers/dm-classic.md
     - No More Room in Hell: game-servers/nmrih.md
     - Left 4 Dead 2: game-servers/left4dead2.md
+    - Game Server Configs: https://github.com/moonstar-x/server-configs
   - Discord Bots:
     - Setting Up: discord-bots/setting-up.md
     - JDA Music Bot: discord-bots/jda-music-bot.md
