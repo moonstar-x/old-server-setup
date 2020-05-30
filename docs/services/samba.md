@@ -1,6 +1,6 @@
 # Samba (SMB/CIFS)
 
-**Samba** lets your Linux based server share files and folders on a Windows File Sharing Workgroup using the same protocol (SMB/CIFS), this is pretty useful when you need to share files between computers on your network and can even be accessed through the Internet (although it should only be done through a VPN for security purposes).
+**Samba** lets your Linux based server share files and folders on a Windows File Sharing Workgroup using the same protocol (SMB/CIFS), this is pretty useful when you need to share files between computers on your network. This also help to allow your files to be accessed through the Internet (although it should only be done through a VPN for security purposes).
 
 ## Installation
 
@@ -25,12 +25,14 @@ Now we'll add the folder we created alongside other directories to the **Samba**
         path = /home/$USER/sambashare
         read only = no
         browsable = yes
+        writeable = yes
 
     [home-users]
         comment = Home users folder
         path = /home
         read only = no
         browsable = yes
+        writeable = yes
 
 Now we restart the **Samba** service to apply the changes:
 
@@ -43,3 +45,25 @@ Before trying to access the share with another computer, we'll need to add a pas
 Now, as a final step, add the firewall rule to allow *SMB* connections.
 
     sudo ufw allow 445/tcp
+
+## Issues with Permissions on Windows
+
+In case you try to access a shared folder that doesn't have the corresponding permissions to allow the Windows user to manage said folder, you can add the following directives to each shared folder block in the config file:
+
+    create umask = 0777
+    directory umask = 0777
+
+## Shared Folders that Contain Symlinks
+
+If one of your shared folders has symlinks in them and you need to share them too, add the following directives to the shared folder block in the config file:
+
+    follow symlinks = yes
+    wide links = yes
+
+## Browsing a Shared Folder as a Specified User
+
+If you want your shared folder to be accessed as a certain user, add the following directive to the shared folder block in the config file:
+
+    force user = $USER
+
+> Replace `$USER` with the UNIX username required.

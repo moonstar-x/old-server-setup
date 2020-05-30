@@ -25,7 +25,7 @@ We can now edit **Squid**'s configuration:
 
     sudo nano /etc/squid/squid.conf
 
-First we'll change the port that **Squid** will listen to (we like 1337/TCP for this). Look for and replace the following:
+First we'll change the port that **Squid** will listen to (we like *1337/TCP* for this). Look for and replace the following:
 
     http_port 1337
 
@@ -48,4 +48,4 @@ We can now restart **Squid**.
 
     sudo service squid restart
 
-We're now ready to use our HTTP proxy, in your internet browser you can add your IP and the port you used to the proxy settings, if you try to connect with no authentication you'll get an error when browsing, you'll need to login with your user.
+We're now ready to use our HTTP proxy, in your internet browser you can add your IP and the port you used to the proxy settings, if you try to connect with no authentication you'll get an error when browsing.

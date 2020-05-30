@@ -23,6 +23,8 @@ Run the following commands:
 
 ## Configuration
 
+TBD.
+
 ## AMX
 
 ### Installation
@@ -69,6 +71,8 @@ And add the following line:
 Replace `STEAM:0:1:23456789` with your **STEAMID32* which you can find [here](https://steamidfinder.com/).
 
 ### Adding Plugins
+
+TBD.
 
 ## Running the Server
 

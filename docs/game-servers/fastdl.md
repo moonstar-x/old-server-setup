@@ -2,7 +2,7 @@
 
 As a disclaimer, the servers that appear under this category are all compatible with FastDL for custom content.
 
-FastDL is a way to host your custom content for your game servers, it delivers the custom content that your server requires to run properly to connecting players. To accomplish this, FastDL requires an *HTTP* server where the content can be stored and accessed. When multiple users join at the same time it can require a lot of bandwidth. for this reason we will use a free hosting solution instead of self-hosting it ourselves, in this case we will use [000webhhost](https://www.000webhost.com/). 000webhost offers 10GB of bandwidth, 1GB of storage and 400 requests-per-minute for free, which is more than enough for a simple *FastDL* host.
+FastDL is a way to host your custom content for your game servers, it delivers the custom content that your server requires to run properly to connecting players. To accomplish this, FastDL requires an webserver where the content can be stored and accessed. When multiple users join at the same time it can require a lot of bandwidth, for this reason we will use a free hosting solution instead of self-hosting it ourselves, in this case we will use [000webhhost](https://www.000webhost.com/). 000webhost offers 10GB of bandwidth, 1GB of storage and 400 requests-per-minute for free, which is more than enough for a simple *FastDL* host.
 
 ## Setting Up Hosting
 

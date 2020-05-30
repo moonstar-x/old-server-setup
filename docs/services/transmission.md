@@ -13,12 +13,12 @@ To install **Transmission**, we'll need to add a PPA source, update the sources 
 
 Since our server OS is installed in a small SSD, we're going to use an internal HDD to store our downloads. I'll assume you already have the HDD mounted properly. For the sake of the example, we're going to mount our HDD in `/media/internal_sata`.
 
-We're going to create a **Downloads** folder and we'll grant it full permissions so we don't run into permissions issues when downloading.
+We're going to create a **Downloads** folder and we'll grant it full permissions so we don't run into issues with permissions when downloading.
 
     mkdir /media/internal_sata/Downloads
     sudo chmod 777 -R /media/internal/sata_Downloads
 
-Now to configure it we need to stop the **Transmission** service and edit the config file.
+Now to configure it, we need to stop the **Transmission** service and edit the config file.
 
     sudo systemctl stop transmission-daemon.service
     sudo nano /var/lib/transmission-daemon/info/settings.json
@@ -34,7 +34,7 @@ In this file, we'll edit just the next lines:
     "umask": 2,
 
 !!! note
-     As a little explanation, *rpc-password* can be set as whatever you want, once the file saves your password will be encrypted, so no need to worry about storing your password in plain text. The *rpc-username* can be set as whatever you want, it doesn't have anything to do with your server username, this will be used to login to **Transmission** on a remote session, same goes for *rpc-password*.
+     As a little explanation, *rpc-password* can be set as whatever you want, once the file is saved, your password will be encrypted, so no need to worry about storing your password in plain text. The *rpc-username* can be set as whatever you want, it doesn't have anything to do with your server username, this will be used to login to **Transmission** on a remote session, same goes for *rpc-password*.
 
 We need to add a firewall rule.
 

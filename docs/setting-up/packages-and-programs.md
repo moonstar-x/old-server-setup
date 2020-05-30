@@ -8,17 +8,19 @@ This is a list that contains a number of useful packages and programs that will 
 
 ### Installation
 
+Installing **screen** is as simple as running the following command:
+
     sudo apt-get install screen
 
 ### Usage
 
 At first it may seem a little complicated and maybe even intimidating to use this tool but once you get used to it you'll realize how useful it really is.
 
-First start up **screen**, type:
+First start up **screen** by typing:
 
-    screen
+    screen -S <socket name>
 
-Here's a table with the keys and actions you can do with **screen**:
+Here's a table with the keys and actions you can use with **screen**:
 
 | Keys         | Action                    |
 |--------------|---------------------------|
@@ -31,15 +33,19 @@ To reattach to a *screen*:
 
     screen -r <screen pid>
 
+or,
+
+    screen -rd <screen socket name>
+
 ## VirtualBox
 
-**VirtualBox** is a machine virtualization program which has the option to run in headless mode (pretty useful in this case), which directs all display and controls through an RDP connection. Not only can we run some VM's to run certain services that may need a dedicated environment we can also "portabilize" these servers, making it easier to back them up in case something goes wrong.
+**VirtualBox** is a machine virtualization tool which has the option to run in headless mode (pretty useful in this case), which directs all display and controls through an *RDP* connection. Not only can we run some VM's to run certain services that may need a dedicated environment, but we can also "portabilize" these servers, making it easier to back them up in case something goes wrong.
 
 In this case we'll use a VM to manage our router in a graphical environment without the need to install a DE or WM on the server (since we want it to remain headless). This VM doesn't require to run 24/7 and ends up being pretty useful considering the *only* alternative would be to forward **X11** through **SSH** which is unstable and literally unusable in high latency connections.
 
 ### Installation
 
-Firstly we need to install some initial packages and reboot the server.
+Firstl, we need to install some initial packages and reboot the server.
 
     sudo apt install build-essential dkms
     sudo reboot
@@ -61,11 +67,11 @@ Before creating/running our VM's we'll need to add our user to the *vboxusers* u
 
     sudo adduser $USER vboxusers
 
-We're not there yet, we still need to install the extension that will let VirtualBox run a VRDP server so we can use the VM remotely through an RDP connection. [Download the VirtualBox Extension Pack corresponding to your version from Oracle's official site](https://download.virtualbox.org/virtualbox/). To check your VirtualBox version, run:
+We're not there yet, we still need to install the extension that will let **VirtualBox** run a *VRDP* server so we can use the VM remotely through an *RDP* connection. [Download the VirtualBox Extension Pack corresponding to your version from Oracle's official site](https://download.virtualbox.org/virtualbox/). To check your **VirtualBox** version, run:
 
     vboxmanage --version
 
-Copy the link, download through *wget* and install. (Keep in mind the example may show a link incompatible with your VirtualBox version).
+Copy the link and download through *wget* and install. (Keep in mind the example may show a link incompatible with your **VirtualBox** version).
 
     wget https://download.virtualbox.org/virtualbox/5.2.16/Oracle_VM_VirtualBox_Extension_Pack-5.2.16.vbox-extpack
     sudo VBoxManage extpack install Oracle_VM_VirtualBox_Extension_Pack-5.2.16.vbox-extpack
@@ -102,7 +108,7 @@ Now we begin. Feel free to change whatever to accommodate your needs.
     VBoxManage storageattach "Lubuntu" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium ~/Downloads/lubuntu-18.04-desktop-amd64.iso
     VBoxManage modifyvm "Lubuntu" --vrde on
 
-That's it, the VM is ready to be used, but before we go ahead and run it, we need to add some firewall rules so we can access the VRDP server.
+That's it, the VM is ready to be used, but before we go ahead and run it, we need to add some firewall rules so we can access the *VRDP* server.
 
     sudo ufw allow 3389/tcp
 
@@ -112,9 +118,9 @@ You can start your Headless VM with the following (keep in mind to replace with 
 
     VBoxHeadless --startvm "Lubuntu"
 
-To control your VM connect to your server's IP through a RDP client. (Remote Desktop on Windows for example.)
+To control your VM, connect to your server's IP through a *RDP* client. (Remote Desktop on Windows, for example)
 
-Should you need to power off, reset, suspend your VM, use the following:
+Should you need to power off, reset or suspend your VM, use the following:
 
     VBoxManage controlvm "Lubuntu" poweroff
     VBoxManage controlvm "Lubuntu" pause

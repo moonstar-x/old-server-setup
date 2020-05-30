@@ -9,7 +9,7 @@ To install this server, open *SteamCMD*, login anonymously and run the following
 
 ## Configuration
 
-To configure the server you'll need to create a *server.cfg* file inside the `left4dead2/cfg`. You can add the minimum settings:
+To configure the server you'll need to create a *server.cfg* file inside the `left4dead2/cfg` folder. You can add the minimum settings:
 
     hostname "SERVER_NAME"
     rcon_password "SECRET"
@@ -55,11 +55,13 @@ At this point, *Sourcemod* and *Metamod* are both installed, but before we head 
 
     nano addons/sourcemod/configs/admins_simple.ini
 
-At the bottom, you'll need to append your **STEAMID32**, (which you can find [here](https://steamidfinder.com/)) with the following tag `99:z`, your file should end with a line similar to the following:
+At the bottom, you'll need to append your **STEAMID32 ID**, (which you can find [here](https://steamidfinder.com/)) with the following tag `99:z`, your file should end with a line similar to the following:
 
     STEAM_0:1:23456789  99:z
 
 ### Adding Plugins
+
+TBD.
 
 ## Running the Server
 

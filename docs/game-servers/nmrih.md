@@ -67,14 +67,16 @@ At this point, *Sourcemod* and *Metamod* are both installed, but before we head 
 
     nano addons/sourcemod/configs/admins_simple.ini
 
-At the bottom, you'll need to append your **STEAMID32**, (which you can find [here](https://steamidfinder.com/)) with the following tag `99:z`, your file should end with a line similar to the following:
+At the bottom, you'll need to append your **STEAMID32 ID**, (which you can find [here](https://steamidfinder.com/)) with the following tag `99:z`, your file should end with a line similar to the following:
 
     STEAM_0:1:23456789  99:z
 
 ### Adding Plugins
 
+TBD.
+
 ## Running the Server
 
-To run the server, simply launch *srcds_run* from the *nmrih* folder with the required folder.
+To run the server, simply launch *srcds_run* from the *nmrih* folder with the required parameters.
 
     ./srcds_run -console -game nmrih -maxplayers 8 +sv_lan 0 +map nms_favela

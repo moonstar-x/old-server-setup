@@ -165,11 +165,11 @@ Now to add the firewall rules to enable connections to the VPN and allow any con
 
 ## Starting the Server
 
-The server is ready to start (make sure to replace server with whatever server name you used when creating the server keys):
+The server is ready to start (make sure to replace `server` with whatever server name you used when creating the server keys):
 
     sudo systemctl start openvpn@server
 
-If there was no issues you'll be able to see a new interface called `tun0` when using `ifconfig`. If that isn't the case then most likely your server configuration is causing issues.
+If there were no issues you'll be able to see a new interface called `tun0` when using `ifconfig`. If that isn't the case then most likely your server configuration is causing issues.
 
 To enable the service so the server auto-starts on login:
 
@@ -187,9 +187,9 @@ The server isn't ready yet, we still need to create client keys, certificates an
 In the text editor you'll see that a configuration is already there, we'll need to make some changes in there to suit our needs.
 
 * Firstly, look for `remote server_IP_address 1194` and change `server_IP_address` to your server's external IP address, you can add your numerical IP address (xxx.xxx.xxx.xxx) only if it's static, if that's not your case I recommend you checking out the following: [NO-IP DUC](https://moonstar-x.github.io/server-setup/services/#no-ip-duc).
-* We'll not uncomment the following items: `user nobody`, `group nogroup` and `comp-lzo`.
+* We'll now uncomment the following items: `user nobody`, `group nogroup` and `comp-lzo`.
 * Now we need to comment the following items: `ca ca.crt`, `cert client.crt` and `key client.key`.
-* We need to add the following: `cipher AES-256-CBC`, `auth SHA256` and `key-direction 1`.
+* We need to add the following in a separate line: `cipher AES-256-CBC`, `auth SHA256` and `key-direction 1`.
 
 Save and quit the file.
 
@@ -251,4 +251,4 @@ My VPN configuration requires me to have two profiles, one where I can connect t
 
 ## Connecting to the VPN
 
-To connect to the VPN your client device will need [OpenVPN](https://openvpn.net/) installed, you can find it for almost any platform. You'll need to transfer from the server to the client device their respective profile: `~/client-configs/files/$CLIENT.ovpn` and the **ta.key** file `~/openvpn-ca/keys/ta.key` (this seems to be only required on mobile clients but chances are your desktop client may need it as well). When connecting to the VPN, the client will receive it's own virtual private IP (10.8.0.x), the server's IP is generally (10.8.0.1). You can now establish connections to the server that are not port forwarded by the router (Samba/CIFS for example).
+To connect to the VPN your client device will need [OpenVPN](https://openvpn.net/) installed, you can find it for almost any platform. You'll need to transfer from the server to the client device their respective profile: `~/client-configs/files/$CLIENT.ovpn` and the **ta.key** file `~/openvpn-ca/keys/ta.key` (this seems to be only required on mobile clients but chances are your desktop client may need it as well). When connecting to the VPN, the client will receive it's own virtual private IP (`10.8.0.x`), the server's IP is generally `10.8.0.1`. You can now establish connections to the server that are not port forwarded by the router (Samba/CIFS for example).

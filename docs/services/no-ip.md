@@ -1,6 +1,6 @@
 # NO-IP DUC
 
-**NO-IP DUC** is a client that updates the public IP of your server to a NO-IP host. This is particularly useful if you want to have a free hostname instead of having to use your IP directly or if your public IP is not static (which is the case for most people). For this you obviously need a NO-IP account, you can create one [here](https://www.noip.com/sign-up).
+**NO-IP DUC** is a client that maps and updates the public IP of your server to a NO-IP host. This is particularly useful if you want to have a free hostname instead of having to use your IP directly or if your public IP is not static (which is the case for most people). For this you obviously need a NO-IP account, you can create one [here](https://www.noip.com/sign-up).
 
 ## Installation
 
@@ -33,9 +33,9 @@ Add the following text to the editor and save the file.
 
     [Install]
     WantedBy=multi-user.target
-    ```
-    Lastly, to enable the service:
-    ```
+
+Lastly, to enable the service:
+
     systemctl daemon-reload
     systemctl enable noip2.service
     systemctl start noip2.service

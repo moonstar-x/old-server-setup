@@ -2,13 +2,15 @@
 
 ## Installation
 
-Before installing, make sure you follow the [Pre-Installation section from Counter-Strike 1.6](#pre-installation). To install this server, open *SteamCMD*, login anonymously and run the following commands:
+Before installing, make sure you follow the [Pre-Installation section from Counter-Strike 1.6](./cstrike.md#pre-installation). To install this server, open *SteamCMD*, login anonymously and run the following commands:
 
     force_install_dir /home/steam/dmc
     app_set_config 90 mod dmc
     app_update 90 validate
 
 ## Configuration
+
+TBD.
 
 ## AMX
 
@@ -54,6 +56,8 @@ And add the following line:
 Replace `STEAM:0:1:23456789` with your **STEAMID32* which you can find [here](https://steamidfinder.com/).
 
 ### Adding Plugins
+
+TBD.
 
 ## Running the Server
 

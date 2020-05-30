@@ -71,3 +71,7 @@ rtmp://server_local_ip/live
 And you can place whatever you want as the stream key.
 
 For testing purposes, you can also stream to `rtmp://server_local_ip/local` and watch it to see how it performs.
+
+## Watching Your Stream Locally
+
+If you wish to see how your server perceives your stream, you can use a *RTMP* player (VLC will do the trick), and open the stream at the url `rtmp://server_local_ip/local/{stream_key}`. Replace `{stream_key}` with the actual streaming key that you're currently using.

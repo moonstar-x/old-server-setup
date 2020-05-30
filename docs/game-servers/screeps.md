@@ -11,7 +11,7 @@ Apart from **Node.js** we will also need the basic **Build Essentials** and **Py
 
     sudo apt-get install build-essential python
 
-Some changes were done in the way that *npm* works which broke this package alongside others. Luckily, you can install this with *yarn* which can fully replace *npm*. To install this, we'll need to configure the repository:
+Some changes were done in the way that *npm* works which broke this package alongside others. Luckily, you can install this with `yarn` which can fully replace `npm`. To install this, we'll need to configure the repository:
 
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
@@ -24,7 +24,7 @@ Then, we update our repositories and install *yarn*.
 
 To install *Screeps*, we will switch to our *steam* user where we store our game servers and we'll create a folder in our home directory.
 
-    sudo -i -u steam
+    sudo -iu steam
     mkdir screeps && cd screeps
 
 Here we can install *Screeps*.

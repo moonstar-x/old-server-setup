@@ -29,22 +29,16 @@ nav:
     - OS and Installation: setting-up/os-and-installation.md
     - Packages and Programs: setting-up/packages-and-programs.md
     - Networking: setting-up/networking.md
-    - OpenVPN: setting-up/openvpn.md
   - Services:
     - Teamspeak 3: services/teamspeak.md
     - NO-IP DUC: services/no-ip.md
+    - OpenVPN: services/openvpn.md
     - Squid: services/squid.md
     - Plex: services/plex.md
     - Samba: services/samba.md
     - Transmission: services/transmission.md
     - Gitea: services/gitea.md
-    - Nextcloud: services/nextcloud.md
     - RTMP Simulcast: services/rtmp-simulcast.md
-  - Discord Bots:
-    - Setting Up: discord-bots/setting-up.md
-    - JDA Music Bot: discord-bots/jda-music-bot.md
-    - 24/7 Music Bot: discord-bots/24-7-musicbot.md
-    - Text-to-Speech Bot: discord-bots/tts-bot.md
   - Game Servers:
     - SteamCMD: game-servers/steamcmd.md
     - Arma 3: game-servers/arma3.md
@@ -56,6 +50,11 @@ nav:
     - Deathmatch Classic: game-servers/dm-classic.md
     - No More Room in Hell: game-servers/nmrih.md
     - Left 4 Dead 2: game-servers/left4dead2.md
+  - Discord Bots:
+    - Setting Up: discord-bots/setting-up.md
+    - JDA Music Bot: discord-bots/jda-music-bot.md
+    - 24/7 Music Bot: discord-bots/24-7-musicbot.md
+    - Text-to-Speech Bot: discord-bots/tts-bot.md
 
 # Theme Customization
 theme:
@@ -79,6 +78,7 @@ theme:
 # Extensions
 markdown_extensions:
   - admonition
+  - meta
   - codehilite:
       guess_lang: false
   - toc:

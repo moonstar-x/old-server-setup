@@ -9,7 +9,7 @@ curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 sudo apt-get install nodejs ffmpeg
 ```
 
-After executing these two commands, we will have access to the `npm`and `node`commands.
+After executing these two commands, we will have access to the `npm` and `node` commands.
 
 ## Installation
 
@@ -20,7 +20,7 @@ sudo -iu discord
 git clone https://github.com/moonstar-x/discord-music-24-7.git
 ```
 
-This will create a `discord-music-24-7`folder which will have everything we need to install our bot.
+This will create a `discord-music-24-7` folder which will have everything we need to install our bot.
 
 We can no access the folder and install the dependencies:
 
@@ -31,7 +31,7 @@ npm install
 
 ## Configuration
 
-Inside the `config`folder there is a `settings.json.example` file, we'll rename it and edit it:
+Inside the `config` folder there is a `settings.json.example` file, we'll rename it and edit it:
 
 ```
 mv settings.json.example settings.json
@@ -50,7 +50,7 @@ npm start
 
 ## Auto-starting
 
-Because we want this bot to autostart on system startup, we'll create a service to make it run when the computer turns on.
+Because we want this bot to run on system startup, we'll create a service to make it run when the computer turns on.
 
 Create the service file with:
 
@@ -76,5 +76,6 @@ Insert the following in the editor:
 
 Once saved, start and enable the service.
 
-    sudo systemctl start discord_moosic.service
-    sudo systemctl enable discord_moosic.service
+    sudo systemctl daemon-reload
+    sudo systemctl start discord_247_music.service
+    sudo systemctl enable discord_247_music.service

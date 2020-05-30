@@ -8,7 +8,7 @@ The *Arma 3* server will require a certain package to be able to run, you can in
 
 ### Modded Instance
 
-To install the *Arma 3* server, you'll need SteamCMD and a Steam account that has a license for *Arma 3*. Remember to do the following commands with the *steam* user (you can switch using ```sudo -i -u steam```).
+To install the *Arma 3* server, you'll need SteamCMD and a Steam account that has a license for *Arma 3*. Remember to do the following commands with the *steam* user (you can switch using `sudo -iu steam`).
 
 Head over to the folder where *SteamCMD* is located and run *SteamCMD*:
 
@@ -220,7 +220,7 @@ And install the mods that you need:
 
     workshop_download_item 107410 <mod_id>
 
-After they've been installed, we'll need to symlinks from mod folders to our *Arma 3* server's directory. For this we'll need to access the *~/arma3mods* folder that we created previously (note that all the filenames here are lowercase).
+After they've been installed, we'll need to create symlinks from the mod folders to our *Arma 3* server's directory. For this we'll need to access the *~/arma3mods* folder that we created previously (note that all the filenames here are lowercase).
 For each mod we'll create a symlink from the id folder to the server folder with the mod name.
 
     ln -s ~/arma3mods/steamapps/workshop/content/107410/<mod_id> ~/arma3/@<mod_name>
@@ -248,7 +248,9 @@ Inside the editor, paste the following, for each mod that you want to download/u
     workshop_download_item 107410 333310405
     quit
 
-Now, we can make a small *bash script* so that we can easily run this *run-script*.
+> As a safety measure, you should add the same mod multiple times to avoid mod download failures.
+
+Now, we can make a small *bash* script so that we can easily run this *run-script*.
 
     nano update_arma3.sh
 

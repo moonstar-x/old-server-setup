@@ -4,18 +4,18 @@ With the existence of Discord, it seems like **TeamSpeak 3** is losing it's popu
 
 ## Installation
 
-Firstly we need to make a new user.
+Firstly, we need to make a new user.
 
     sudo adduser --disabled-login teamspeak
     sudo -i -u teamspeak
 
-We can now download the [newest version of TeamSpeak 3 Server](https://www.teamspeak.com/en/downloads#server) and we extract it. *(Again, the link on the example below may be outdated and/or unavailable.)*
+We can now download the [newest version of TeamSpeak 3 Server](https://www.teamspeak.com/en/downloads#server) and extract it. *(Again, the link on the example below may be outdated and/or unavailable)*
 
     mkdir Downloads && cd Downloads
     wget http://dl.4players.de/ts/releases/3.3.0/teamspeak3-server_linux_amd64-3.3.0.tar.bz2
     tar xvf teamspeak3-server_linux_amd64-3.3.0.tar.bz2
 
-Before starting the server we need to accept **TeamSpeak 3**'s license agreement.
+Before starting the server, we need to accept **TeamSpeak 3**'s license agreement.
 
     touch .ts3server_license_accepted
 

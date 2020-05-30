@@ -12,7 +12,7 @@ To install the **Assetto Corsa** dedicated server we'll need to start SteamCMD u
 
 First we'll change to our *steam* user and go to where our SteamCMD is located.
 
-    sudo -i -u steam
+    sudo -iu steam
     cd ~/Steam
 
 We'll run SteamCMD with the following argument:
@@ -72,7 +72,7 @@ The biggest downside of running the server through a Windows VM is the "wasted" 
 
 ### Installing the Virtual Machine
 
-For the virtual machine we're going to use VirtualBox, I'm assuming you already have it installed but in case you haven't check [this section of the guide](https://moonstar.greencoaststudios.com/server-setup/packages-and-programs/#virtualbox).
+For the virtual machine we're going to use VirtualBox, I'm assuming you already have it installed but in case you haven't check [this section of the guide](../setting-up/packages-and-programs.md#virtualbox).
 
 We're going to install Windows 7 Home Basic, we're going to give it 2GB or RAM, 60GB of disk space and access to 2 CPU cores. We're going to do this on the *steam* user, for this, we'll need to add the *steam* user to the *vboxusers* group.
 
@@ -92,7 +92,7 @@ To set-up the VM (make sure to change the settings to your needs):
     vboxmanage storageattach "Assetto-win" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium ~/Downloads/Windows7.iso
     vboxheadless --startvm “Assetto-win”
 
-At this point, the VM should successfully running, to control it, connect to the host's IP through an RDP connection (such as Microsoft Remote Desktop). Continue with the Windows installation process. Once the installation is complete, we'll install the VirtualBox Guest Additions, in the host, run the following command:
+At this point, the VM should be successfully running, to control it, connect to the host's IP through an RDP connection (such as Microsoft Remote Desktop). Continue with the Windows installation process. Once the installation is complete, we'll install the VirtualBox Guest Additions, in the host, run the following command:
 
     vboxmanage storageattach "Assetto-win" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium /usr/share/virtualbox/VBoxGuestAdditions.iso
 

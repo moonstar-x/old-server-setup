@@ -2,7 +2,7 @@
 
 ## Ubuntu Server 18.04 LTS 64-bit
 
-Keep in mind this guide is for a server running an Ubuntu/Debian flavored distro. For performance and compatibility reasons, the OS of choice is [Ubuntu Server 18.04 LTS 64-bit](https://www.ubuntu.com/server) in headless mode. The installation is a quick and easy process that is assisted by it's own install wizard. When asked what snapshot (initial server configuration) should be installed, simply choose none or just default.
+Keep in mind this guide is for a server running an Ubuntu/Debian flavored distro. For performance and compatibility reasons, the OS of choice is [Ubuntu Server 18.04 LTS 64-bit](https://www.ubuntu.com/server) in headless mode. The installation is a quick and easy process that is assisted by it's own install wizard. When asked what snapshot (initial server configuration) should be installed, simply choose **none** or just **default**.
 
 As a general rule of thumb, after installing the OS it is recommended to update the sources and packages:
 
@@ -15,7 +15,6 @@ A little issue that comes with Ubuntu Server is the limited *apt* sources that c
     sudo -s
     > /etc/apt/sources.list
     nano /etc/apt/sources.list
-    exit
 
 Once the editor opens up, paste the following and save the file:
 

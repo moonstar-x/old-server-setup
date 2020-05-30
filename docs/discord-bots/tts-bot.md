@@ -16,7 +16,7 @@ To install the TTS bot, we will first clone the project from its repo from the *
     sudo -i -u discord
     git clone https://github.com/moonstar-x/discord-tts-bot.git
 
-This will create a folder called discord-tts-bot which will have everything we need to install our bot.
+This will create a folder called `discord-tts-bot` which will have everything we need to install our bot.
 
 We can now access the folder and install the dependencies:
 
@@ -25,7 +25,7 @@ We can now access the folder and install the dependencies:
 
 ## Configuration
 
-Inside the `config` folder there is a *settings.json.example* file, we'll rename it and then we'll edit it:
+Inside the `config` folder there is a `settings.json.example` file, we'll rename it and then we'll edit it:
 
     mv settings.json.example settings.json
     nano settings.json

@@ -1,6 +1,6 @@
 # JDA Music Bot
 
-[jagrosh's Music Bot](https://github.com/jagrosh/MusicBot) is made in java with JDA, a Discord API wrapper for java, is one of the best music bots I've seen out there, it does what it says and does it in a simple way - stream music to a Discord voice channel.
+[jagrosh's Music Bot](https://github.com/jagrosh/MusicBot) is made in Java with JDA, a Discord API wrapper for Java. It is one of the best music bots I've seen out there, it does what it says and does it in a simple way - stream music to a Discord voice channel.
 
 ## Installing Requirements
 
@@ -44,7 +44,7 @@ You can now run your Music Bot.
 
 ## Auto-starting
 
-We'll now create a service so the bot can autostart on login, but before creating it we'll create a simple script that we can use to start the bot instead of running java manually.
+We'll now create a service so the bot can autostart on login, but before creating it we'll make a simple script that we can use to start the bot instead of running the Java command manually.
 
     nano start.sh
 

@@ -12,7 +12,7 @@ The following installs a vanilla **Minecraft** server, if you're looking for a m
 
 After installing Oracle Java, we're ready to install a **Minecraft** server. We'll change to our *steam* user since it's dedicated to our game servers. We'll also create a folder specifically for it.
 
-    sudo -i -u steam
+    sudo -iu steam
     cd ~
     mkdir minecraft && cd minecraft
 
@@ -43,7 +43,7 @@ Now that all the required files have been generated, we can continue to set up o
 
     nano server.properties
 
-All the settings here are pretty much self explanatory but there's one that I'm going to address and it's *online-mode*. This setting tells the **Minecraft** server whether it should connect to the Minecraft.net servers to check if all the users connecting have a **Minecraft** Premium account and download their respective skins. This option is generally set to *true*, but if we have friends that do not have **Minecraft** Premium they'll be able to join our server if we set *online-mode=false*, keep in mind that everyone's skins will be set to default and anyone that joins through a 3rd-party launcher may be able to change their name anytime (risking identity theft or ban avoidance).
+All the settings here are pretty much self explanatory but there's one that I'm going to address and it's *online-mode*. This setting tells the **Minecraft** server whether it should connect to the Minecraft.net servers to check if all the users connecting have a **Minecraft** Premium account and download their respective skins. This option is generally set to `true`, but if we have friends that do not have **Minecraft** Premium they'll be able to join our server if we set `online-mode=false`, keep in mind that everyone's skins will be set to default and anyone that joins through a 3rd-party launcher may be able to change their name anytime (risking identity theft or ban avoidance).
 
 Remember, we need to allow connections through the firewall (you may need to change to an user that has access to the *sudo* command, i.e you main administrator user):
 

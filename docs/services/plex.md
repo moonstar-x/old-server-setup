@@ -4,7 +4,7 @@
 
 ## Installation
 
-Unlike the other programs, this one installs in a pretty easy way. First head over to the [Plex downloads site](https://www.plex.tv/media-server-downloads/#plex-media-server) and download the latest release for your operating system. *(Keep in mind the link in the example may be outdated.)*
+Unlike the other programs, this one installs in a pretty easy way. First, head over to the [Plex downloads site](https://www.plex.tv/media-server-downloads/#plex-media-server) and download the latest release for your operating system. *(Keep in mind the link in the example may be outdated.)*
 
     wget https://downloads.plex.tv/plex-media-server/1.13.5.5291-6fa5e50a8/plexmediaserver_1.13.5.5291-6fa5e50a8_amd64.deb
 
@@ -34,7 +34,7 @@ In order to fix this issue we'll need to change some settings with the *plex* us
 
 Now we'll add our hard drives to the mount points that we'll create so they get mounted and recognized by **Plex** on startup. In our case we'll add an internal (SATA) drive and an external (USB) drive.
 
-    mkdir ~/plex_sata ~/plex_usb
+    mkdir /media/plex_sata /media/plex_usb
 
 I'll assume your drives are already partitioned and formatted. We can list the drives with:
 
@@ -47,9 +47,9 @@ You'll receive an output similar to this one:
     /dev/sda1: PARTUUID="46e94feb-2ed3-4b1f-b21f-41d452fe2b13"
 
 !!! note
-     Notice here that there's only one hard drive plugged in so it only recognizes /dev/sda, this is called the ID. If you have a drive plugged in and it does not show up in this list, it is likely not partitioned or formatted. Do not proceed if this happens. Instead use **fstab** to fix your issues and then come back.
+     Notice here that there's only one hard drive plugged in so it only recognizes /dev/sda, this is called the ID. If you have a drive plugged in and it does not show up in this list, it is likely not partitioned or formatted. Do not proceed if this happens. Instead use **fdisk** to fix your issues and then come back.
 
-Identify the drive ID that corresponds with what you need to add to **Plex**, copy the UUID that is displayed, we'll need it later. We need to edit our file system table.
+Identify the drive UUID that corresponds with what you need to add to **Plex**, copy the one displayed, we'll need it later. We now need to edit our file system table.
 
  **PROCEED AT YOUR OWN RISK, MESSING UP THIS FILE WILL MOST PROBABLY BREAK YOUR COMPUTER!**
 
@@ -63,6 +63,6 @@ We now need to add the following in a new line (separate everything with a `Tab`
 
 If you replace everything with your information you should get something like this.
 
-    UUID=A82CC6B45D20  /home/server/plex_usb    ntfs    0   0
+    UUID=A82CC6B45D20  /media/plex_usb    ntfs    0   0
 
 Finally, reboot your server. You can now add your external hard drive in the **Plex** library by adding the folder you added as a mount point.

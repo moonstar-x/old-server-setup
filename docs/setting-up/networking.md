@@ -22,7 +22,7 @@ Here's a table that contains the required default ports that need to be forwarde
 | Minecraft                   | 25565       | TCP      |
 | Screeps                     | 21025       | TCP      |
 
-If you don't know what internal IP the server is running on you can always run:
+If you don't know what internal IP the server is running on, you can always type on the terminal:
 
     ifconfig
 
@@ -79,7 +79,7 @@ To set it up, simply run:
 
 When running this, you'll receive a *secret key* which is used to add your account manually to your phone's *2FA* application. Alternatively, you also get a nicely printed QR code on the terminal window (which you may need to resize to see fully) that you can scan with your phone. You will also get some scratch codes that you should always keep somewhere safe, just in case you lose access to your phone or something happens, you can still login to your server.
 
-To continue, answer ```y```to all the questions to set up *2FA* with the default settings.
+To continue, answer `y` to all the questions to set up *2FA* with the default settings.
 
 We now need to enable *2FA* on *SSH*, to do this, edit the following file:
 
@@ -106,7 +106,7 @@ Save and close the file.
 
 #### Testing
 
-In order to test that *2FA* works properly, open up a new ssh session without closing the previous one and try logging in, you'll be prompted for your user password and for the *2FA* code which is available on your phone.
+In order to test that *2FA* works properly, open up a new *SSH* session without closing the previous one and try logging in, you'll be prompted for your user password and for the *2FA* code which is available on your phone.
 
 !!! note "Notice:"
-    When using *2FA* for *SSH*, all the users in the server will need to set-it up, otherwise they won't be able to access their accounts. In case you get locked out from one of these users, you can always login to a sudoer account (usually the admin one which is added when installing the OS) and force-login with: ```sudo -i -u <user>```.
+    When using *2FA* for *SSH*, all the users in the server will need to set-it up, otherwise they won't be able to access their accounts. In case you get locked out from one of these users, you can always login to a sudoer account (usually the admin one which is added when installing the OS) and force-login with: `sudo -iu <user>`.

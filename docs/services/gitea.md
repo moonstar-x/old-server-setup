@@ -12,7 +12,7 @@ For a better organization, we'll create an user for **Gitea**:
 sudo adduser --disabled-login git
 ```
 
-Since we'll do the initial setup from an external machine, we'll open the port `3000`to access the web interface.
+Since we'll do the initial setup from an external machine, we'll open the port `3000` to access the web interface.
 
 ```
 sudo ufw allow 3000/tcp
@@ -20,7 +20,7 @@ sudo ufw allow 3000/tcp
 
 ### Database Creation
 
-Also, **Gitea** will require a database, for this, we'll use **PostgreSQL**, to install it, run:
+Also, **Gitea** will require a database, for this, we'll use **PostgreSQL**. To install it, run:
 
 ```
 sudo apt-get install postgresql
@@ -42,11 +42,11 @@ CREATE DATABASE gitea OWNER gitea;
 ```
 
 !!! note
-    Replace `$password`with the actual password for your database.
+    Replace `$password` with the actual password for your database.
 
 ### Gitea Install
 
-Change user to the just created `git`user and create a `gitea`folder inside its home directory.
+Change to the `git` user and create a `gitea` folder inside its home directory.
 
 ```
 sudo -iu git
@@ -122,7 +122,7 @@ sudo apt-get install nginx
 
 ### Configuring Virtual Host
 
-To configure the *virtual host*, create a *gitea* configuration file with the following:
+To configure the *virtual host*, create a *gitea* configuration file with the following command:
 
 ```
 sudo nano /etc/nginx/sites-enabled/gitea
@@ -156,18 +156,18 @@ sudo service nginx reload
 
 ## Gitea Manual Configuration
 
-While the **Gitea** web configuration is pretty good, we still need to manually change certain things from the configuration file like the domain through which you access **Gitea**. To do this, change to the `git`user and edit the configuration file:
+While the **Gitea** web configuration is pretty good, we still need to manually change certain things from the configuration file like the domain through which you access **Gitea**. To do this, change to the `git` user and edit the configuration file:
 
 ```
 sudo -iu git
 nano ~/gitea/custom/app.ini
 ```
 
-* Change the `DOMAIN` and `SSH_DOMAIN`directives to the domain that you use to access **Gitea**.
-* Change `ROOT_URL`to **https://domain.com**
-* Change `DISABLE_SSH`to **true**.
+* Change the `DOMAIN` and `SSH_DOMAIN` directives to the domain that you use to access **Gitea**.
+* Change `ROOT_URL` to **https://domain.com**
+* Change `DISABLE_SSH` to **true**.
 
-### Changing The Favicon
+## Changing The Favicon
 
 To change the favicon of the site, create the following folder:
 
