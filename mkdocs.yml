@@ -63,6 +63,7 @@ nav:
     - JDA Music Bot: discord-bots/jda-music-bot.md
     - 24/7 Music Bot: discord-bots/24-7-musicbot.md
     - Text-to-Speech Bot: discord-bots/tts-bot.md
+    - Greencoast Variety Bot: discord-bots/gcs-variety.md
 
 # Theme Customization
 theme:
