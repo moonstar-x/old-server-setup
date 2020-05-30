@@ -294,7 +294,8 @@ workshop_download_item 107410 333310405
 quit
 ```
 
-> As a safety measure, you should add the same mod multiple times to avoid mod download failures.
+!!! tip
+    As a safety measure, you should add the same mod multiple times to avoid mod download failures.
 
 Now, we can make a small *bash* script so that we can easily run this *run-script*.
 
@@ -380,7 +381,7 @@ Inside the editor, paste the following:
 ./arma3server -name=<server_name> -config=<config_file> -mod=@mod1\;@mod2\;@mod3...
 ```
 
-!!!note "Notice:"
+!!!note
     *server_name* refers to the server name that you used for the *Arma 3 Profile* that is located in **~/.local/share/Arma 3 - Other Profiles**, the *config_file* refers to the *Arma 3 Config* that is inside the *Arma 3* directory, replace them with your own settings.
 
 An example for this script that runs ACE and CBA_A3.

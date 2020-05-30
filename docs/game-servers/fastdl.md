@@ -1,14 +1,21 @@
 # FastDL
 
-As a disclaimer, the servers that appear under this category are all compatible with FastDL for custom content.
+!!! info
+    As a disclaimer, *FastDL* is only available for Source game servers. Meaning that only the following games (that are in this guide) can use *FastDL*:
 
-FastDL is a way to host your custom content for your game servers, it delivers the custom content that your server requires to run properly to connecting players. To accomplish this, FastDL requires an webserver where the content can be stored and accessed. When multiple users join at the same time it can require a lot of bandwidth, for this reason we will use a free hosting solution instead of self-hosting it ourselves, in this case we will use [000webhhost](https://www.000webhost.com/). 000webhost offers 10GB of bandwidth, 1GB of storage and 400 requests-per-minute for free, which is more than enough for a simple *FastDL* host.
+    * Counter-Strike 1.6
+    * Deathmatch Classic
+    * No More Room in Hell
+    * Left 4 Dead 2
+
+*FastDL* is a way to host your custom content for your game servers, it delivers the custom content that your server requires to run properly to connecting players. To accomplish this, *FastDL* requires an webserver where the content can be stored and accessed. When multiple users join at the same time it can require a lot of bandwidth, for this reason we will use a free hosting solution instead of self-hosting it ourselves, in this case we will use [000webhhost](https://www.000webhost.com/). 000webhost offers 10GB of bandwidth, 1GB of storage and 400 requests-per-minute for free, which is more than enough for a simple *FastDL* host.
 
 ## Setting Up Hosting
 
-Firstly, create an account at [000webhost](https://www.000webhost.com/), make sure you don't use a password that you generally use since this service is fairly unreliable and has endured many security breaches (it's still worth it for something as trivial as *FastDL*).
+Firstly, create an account at [000webhost](https://www.000webhost.com/). Then, create a site, give it a name that will be easy for you to remember since it will be your web link (`sitename.000webhostapp.com`), set again a password for this site that is secure but that you don't use.
 
-Then, create a site, give it a name that will be easy for you to remember since it will be your web link (sitename.000webhostapp.com), set again a password for this site that is secure but that you don't use.
+!!! danger
+    Make sure you don't use a password that you generally use since this service is fairly unreliable and has endured many security breaches (it's still worth it for something as trivial as *FastDL*).
 
 ## Uploading Content
 

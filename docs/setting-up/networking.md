@@ -132,5 +132,5 @@ Save and close the file.
 
 In order to test that *2FA* works properly, open up a new *SSH* session without closing the previous one and try logging in, you'll be prompted for your user password and for the *2FA* code which is available on your phone.
 
-!!! note "Notice:"
+!!! info
     When using *2FA* for *SSH*, all the users in the server will need to set-it up, otherwise they won't be able to access their accounts. In case you get locked out from one of these users, you can always login to a sudoer account (usually the admin one which is added when installing the OS) and force-login with: `sudo -iu <user>`.

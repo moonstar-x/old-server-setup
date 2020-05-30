@@ -168,5 +168,5 @@ These are other packages which may be required by the services that run on the m
 sudo apt-get install lib32gcc1 ranger unzip wget thunar
 ```
 
-!!! note
+!!! info
      **lib32gcc1** is required by **SteamCMD** to be able to properly run certain game servers on a 64-bit architecture.

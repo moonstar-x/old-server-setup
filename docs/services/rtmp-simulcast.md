@@ -49,10 +49,10 @@ rtmp {
 ```
 
 !!! note
-  Replace `rtmp://ingest.sever.com/application/stream_key` with the actual ingest server of the 	platform you want to stream to. For example: `rtmp://a.rtmp.youtube.com/live2/{my_stream_key}`. You can push multiple links.
+    Replace `rtmp://ingest.sever.com/application/stream_key` with the actual ingest server of the 	platform you want to stream to. For example: `rtmp://a.rtmp.youtube.com/live2/{my_stream_key}`. You can push multiple links.
 
 !!! note
-  If your machine is running another web server such as **Apache**, comment out or delete all the directives inside the **http{}** group.
+    If your machine is running another web server such as **Apache**, comment out or delete all the directives inside the **http{}** group.
 
 Make sure to open the *RTMP* port:
 

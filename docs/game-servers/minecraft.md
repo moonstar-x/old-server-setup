@@ -27,7 +27,7 @@ wget https://launcher.mojang.com/mc/game/1.13/server/d0caafb8438ebd206f99930cfae
 java -Xms2G -Xmx2G -jar server.jar nogui
 ```
 
-!!! note ""
+!!! info
      Replace the first two arguments with the amount of RAM you want to dedicate for the Minecraft server.
 
 If everything went well, the server closed itself and a little *eula.txt* file was generated in the server's directory. We need to edit that file to accept the EULA agreement.

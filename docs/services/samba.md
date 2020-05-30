@@ -86,4 +86,5 @@ If you want your shared folder to be accessed as a certain user, add the followi
 force user = $USER
 ```
 
-> Replace `$USER` with the UNIX username required.
+!!! note
+    Replace `$USER` with the UNIX username required.

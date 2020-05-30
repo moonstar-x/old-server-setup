@@ -4,11 +4,14 @@
 
 ## Installation
 
-Unlike the other programs, this one installs in a pretty easy way. First, head over to the [Plex downloads site](https://www.plex.tv/media-server-downloads/#plex-media-server) and download the latest release for your operating system. *(Keep in mind the link in the example may be outdated.)*
+Unlike the other programs, this one installs in a pretty easy way. First, head over to the [Plex downloads site](https://www.plex.tv/media-server-downloads/#plex-media-server) and download the latest release for your operating system.
 
 ``` text
 wget https://downloads.plex.tv/plex-media-server/1.13.5.5291-6fa5e50a8/plexmediaserver_1.13.5.5291-6fa5e50a8_amd64.deb
 ```
+
+!!! warning
+    Keep in mind that the link in the example above may be outdated.
 
 Now we proceed with the installation:
 
@@ -30,7 +33,7 @@ We can now access the web interface via `http://serverip:32400/web` to set up th
 
 Maybe your media collection is so big that you cannot fit it in one single drive, you insert a second hard drive to your computer, you plug in your USB hard drive only to find out that when trying to add it to your **Plex** library you get bombarded with errors. This issue happens when there's some problems with the permissions system and the *plex* user.
 
-In order to fix this issue we'll need to change some settings with the *plex* user, enter the following commands (replace **$USER** with your actual username):
+In order to fix this issue we'll need to change some settings with the *plex* user, enter the following commands:
 
 ``` text
 sudo gpasswd -a plex plugdev
@@ -39,6 +42,9 @@ sudo gpasswd -a plex sudo
 sudo gpasswd -a plex $USER
 sudo gpasswd -a $USER plex
 ```
+
+!!! note
+    Be sure to replace `$USER` with your actual username.
 
 Now we'll add our hard drives to the mount points that we'll create so they get mounted and recognized by **Plex** on startup. In our case we'll add an internal (SATA) drive and an external (USB) drive.
 
@@ -61,13 +67,14 @@ You'll receive an output similar to this one:
 ```
 
 !!! note
-     Notice here that there's only one hard drive plugged in so it only recognizes `/dev/sda`, this is called the ID. If you have a drive plugged in and it does not show up in this list, it is likely not partitioned or formatted. Do not proceed if this happens. Instead use **fdisk** to fix your issues and then come back.
+    Notice here that there's only one hard drive plugged in so it only recognizes `/dev/sda`, this is called the ID. If you have a drive plugged in and it does not show up in this list, it is likely not partitioned or formatted. Do not proceed if this happens. Instead use **fdisk** to fix your issues and then come back.
 
 Identify the drive UUID that corresponds with what you need to add to **Plex**, copy the one displayed, we'll need it later. We now need to edit our file system table.
 
- **PROCEED AT YOUR OWN RISK, MESSING UP THIS FILE WILL MOST PROBABLY BREAK YOUR COMPUTER!**
+!!! danger
+    Proceed at your own risk, messing up this file will most probably break your computer. You can still fix it by entering safe mode and logging in as `root` to rollback this file.
 
- Access the *fstab* file:
+Access the *fstab* file:
 
 ``` text
 sudo nano /etc/fstab

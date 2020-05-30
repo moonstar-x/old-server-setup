@@ -39,7 +39,7 @@ login anonymous
 login <username>
 ```
 
-!!! note "Notice:"
+!!! note
     Use either one, prefer anonymous over your username when possible, keep in mind that some packages require a license for your account, meaning that certain game servers can only be downloaded if you have said game in your Steam library. When inserting your username you'll be prompted to enter your password and your Steam guard code in case you have 2 factor security enabled.
 
 When downloading a package, it is often recommended to save it in a separate folder for better organization.

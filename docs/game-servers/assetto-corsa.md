@@ -73,7 +73,7 @@ sudo ufw allow 9600/tcp
 sudo ufw allow 9600/udp
 ```
 
-!!! note "Notice:"
+!!! note
     If you wish to run multiple servers or multiple configurations it is advised to reinstall the server in a different location and run a different acServer executable, after all, the server file size isn't too big.
 
 If you want to add mods to the server, you can get them from [here](https://assettocorsa.club/en/), make sure to place them in the correct folder: `./content/cars` or `./content/tracks`, keep in mind the clients will also need the mods installed.

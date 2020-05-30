@@ -11,13 +11,16 @@ sudo adduser --disabled-login teamspeak
 sudo -iu teamspeak
 ```
 
-We can now download the [newest version of TeamSpeak 3 Server](https://www.teamspeak.com/en/downloads#server) and extract it. *(Again, the link on the example below may be outdated and/or unavailable)*
+We can now download the [newest version of TeamSpeak 3 Server](https://www.teamspeak.com/en/downloads#server) and extract it.
 
 ``` text
 mkdir Downloads && cd Downloads
 wget http://dl.4players.de/ts/releases/3.3.0/teamspeak3-server_linux_amd64-3.3.0.tar.bz2
 tar xvf teamspeak3-server_linux_amd64-3.3.0.tar.bz2
 ```
+
+!!! warning
+    Keep in mind that the link above may be outdated.
 
 Before starting the server, we need to accept **TeamSpeak 3**'s license agreement.
 
