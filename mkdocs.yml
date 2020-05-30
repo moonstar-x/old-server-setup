@@ -42,11 +42,12 @@ nav:
     - NO-IP DUC: services/no-ip.md
     - OpenVPN: services/openvpn.md
     - Squid: services/squid.md
+    - RTMP Simulcast: services/rtmp-simulcast.md
+    - Gitea: services/gitea.md
     - Plex: services/plex.md
+    - Tautulli: services/tautulli.md
     - Samba: services/samba.md
     - Transmission: services/transmission.md
-    - Gitea: services/gitea.md
-    - RTMP Simulcast: services/rtmp-simulcast.md
   - Game Servers:
     - SteamCMD: game-servers/steamcmd.md
     - Arma 3: game-servers/arma3.md
