@@ -14,9 +14,15 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/moonstar-x
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/moonstar_x99
+    - icon: fontawesome/brands/twitch
+      link: https://www.twitch.tv/moonstar_x
     - icon: fontawesome/brands/reddit
       link: https://www.reddit.com/user/moonstar-x
-    - icon: fontawesome/solid/globe
+    - icon: fontawesome/solid/gamepad
+      link: https://gaming.greencoaststudios.com/player/moonstar-x
+    - icon: fontawesome/solid/globe-americas
       link: https://moonstar.greencoaststudios.com
 
 # Copyright
