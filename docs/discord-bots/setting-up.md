@@ -2,7 +2,9 @@
 
 The following bots will be installed in a separate user space.
 
-    sudo adduser --disabled-login discord
+``` text
+sudo adduser --disabled-login discord
+```
 
 ## Requirements
 
@@ -12,4 +14,5 @@ When hosting your own bots for Discord you'll need a bot token, which is generat
 * [Finding out your user ID.](https://github.com/moonstar-x/discord-downtime-notifier/wiki/Getting-User,-Channel-and-Server-IDs)
 * [Adding your bot to your server.](https://github.com/moonstar-x/discord-downtime-notifier/wiki/Adding-Your-Bot-To-Your-Server)
 
-The following guides are not limited to music bots, you can follow these guides for any kind of bot.
+!!! note
+    The following guides are not limited to music bots, you can follow these guides for any kind of bot.

@@ -2,49 +2,51 @@
 site_name: Server Setup Guide
 site_description: My server setup guide for Ubuntu Server.
 site_author: moonstar-x
-site_url: https://moonstar.greencoaststudios.com
+site_url: https://moonstar.greencoaststudios.com/server-setup/
 
 # Repo
-repo_name: "GitHub: moonstar-x"
-repo_url: "https://github.com/moonstar-x"
-edit_uri: ""
+repo_name: 'GitHub: moonstar-x'
+repo_url: https://github.com/moonstar-x
+edit_uri: ''
 
 # Social
 extra:
   social:
-    - type: "github"
-      link: "https://github.com/moonstar-x"
-    - type: "reddit"
-      link: "https://www.reddit.com/user/moonstar-x"
-    - type: "globe"
-      link: "https://moonstar.greencoaststudios.com"
+    - icon: fontawesome/brands/github
+      link: https://github.com/moonstar-x
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/moonstar_x99
+    - icon: fontawesome/brands/twitch
+      link: https://www.twitch.tv/moonstar_x
+    - icon: fontawesome/brands/reddit
+      link: https://www.reddit.com/user/moonstar-x
+    - icon: fontawesome/solid/gamepad
+      link: https://gaming.greencoaststudios.com/player/moonstar-x
+    - icon: fontawesome/solid/globe-americas
+      link: https://moonstar.greencoaststudios.com
 
 # Copyright
-copyright: 'Copyright &copy; 2018 - 2019 moonstar-x'
+copyright: Copyright &copy; 2018 - 2020 moonstar-x
 
 # Navigation
 nav:
-  - Setting Up:
+  - Home:
     - Introduction: index.md
-    - OS and Installation: os-and-installation.md
-    - Packages and Programs: packages-and-programs.md
-    - Networking: networking.md
-    - OpenVPN: openvpn.md
+    - Guide Status: status.md
+  - Setting Up:
+    - OS and Installation: setting-up/os-and-installation.md
+    - Packages and Programs: setting-up/packages-and-programs.md
+    - Networking: setting-up/networking.md
   - Services:
     - Teamspeak 3: services/teamspeak.md
     - NO-IP DUC: services/no-ip.md
+    - OpenVPN: services/openvpn.md
     - Squid: services/squid.md
     - Plex: services/plex.md
     - Samba: services/samba.md
     - Transmission: services/transmission.md
     - Gitea: services/gitea.md
-    - Nextcloud: services/nextcloud.md
     - RTMP Simulcast: services/rtmp-simulcast.md
-  - Discord Bots:
-    - Setting Up: discord-bots/setting-up.md
-    - JDA Music Bot: discord-bots/jda-music-bot.md
-    - 24/7 Music Bot: discord-bots/24-7-musicbot.md
-    - Text-to-Speech Bot: discord-bots/tts-bot.md
   - Game Servers:
     - SteamCMD: game-servers/steamcmd.md
     - Arma 3: game-servers/arma3.md
@@ -56,26 +58,58 @@ nav:
     - Deathmatch Classic: game-servers/dm-classic.md
     - No More Room in Hell: game-servers/nmrih.md
     - Left 4 Dead 2: game-servers/left4dead2.md
+    - Game Server Ports: game-servers/ports.md
+    - Game Server Configs: https://github.com/moonstar-x/server-configs
+  - Discord Bots:
+    - Setting Up: discord-bots/setting-up.md
+    - JDA Music Bot: discord-bots/jda-music-bot.md
+    - 24/7 Music Bot: discord-bots/24-7-musicbot.md
+    - Text-to-Speech Bot: discord-bots/tts-bot.md
+    - Greencoast Variety Bot: discord-bots/gcs-variety.md
 
 # Theme Customization
 theme:
   name: material
   palette:
-    primary: 'deep purple'
-    accent: 'pink'
+    scheme: slate
+    primary: deep purple
+    accent: purple
   font:
-    text: 'Roboto'
-    code: 'Roboto Mono'
-  logo:
-    icon: 'whatshot'
-  language: 'en'
-  direction: 'ltr'
-  favicon: 'assets/favicon.ico'
-  feature:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    logo: fontawesome/solid/star
+    repo: fontawesome/brands/github
+  language: en
+  direction: ltr
+  favicon: assets/favicon.ico
+  features:
     tabs: true
 
 # Extensions
 markdown_extensions:
   - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.mark
+  - pymdownx.tabbed
+  - pymdownx.tasklist
+  - pymdownx.betterem
 
+# Plugins
+plugins:
+  - search
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      type: date
 
+# Google Analytics
+google_analytics:
+  - UA-167966432-1
+  - auto

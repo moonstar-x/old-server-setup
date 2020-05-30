@@ -6,46 +6,53 @@ In this part we'll install **SteamCMD** which is a headless Steam client that le
 
 Before installing this tool, we'll create a new user, just to better organize ourselves.
 
-    sudo adduser --disabled-login steam
-    sudo -i -u steam
+``` text
+sudo adduser --disabled-login steam
+sudo -iu steam
+```
 
-Since the *steam* user's *home* folder is empty, we'll make a folder for SteamCMD.
+Since the *steam* user's home folder is empty, we'll make a folder for SteamCMD.
 
-    mkdir steamcmd && cd steamcmd
+``` text
+mkdir steamcmd && cd steamcmd
+```
 
 Now we proceed with the download and extraction.
 
-    wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
-    tar zxvf steamcmd_linux.tar.gz && rm steamcmd_linux.tar.gz
+``` text
+wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
+tar zxvf steamcmd_linux.tar.gz && rm steamcmd_linux.tar.gz
+```
 
 That's it, you can start up SteamCMD with:
 
-    ./steamcmd.sh
+``` text
+./steamcmd.sh
+```
 
 ## Usage
 
 First and foremost, when using SteamCMD you'll need to login, whether it is to your account or to an *anonymous* account (which is basically the same as logging in to an empty user).
 
-    login anonymous
-    login <username>
+``` text
+login anonymous
+login <username>
+```
 
-!!! note "Notice:"
+!!! note
     Use either one, prefer anonymous over your username when possible, keep in mind that some packages require a license for your account, meaning that certain game servers can only be downloaded if you have said game in your Steam library. When inserting your username you'll be prompted to enter your password and your Steam guard code in case you have 2 factor security enabled.
 
-When downloading a package it is often recommended to save it in a separate folder for better organization.
+When downloading a package, it is often recommended to save it in a separate folder for better organization.
 
-    force_install_dir <path>
+``` text
+force_install_dir <path>
+```
 
 To download a package, you'll need it's AppID, a list of Dedicated sever AppIDs can be found [here](https://developer.valvesoftware.com/wiki/Dedicated_Servers_List).
 
-    app_update <app_id> validate
-
-## Firewall Rules (Source Games)
-
-For Source Games (cstrike, l4d2, nmrih, etc...) which share the same port range, add the following port range to your firewall rules:
-
-    sudo ufw allow 27000:27050/tcp
-    sudo ufw allow 27000:27050/udp
+``` text
+app_update <app_id> validate
+```
 
 ## Server Updating
 
@@ -55,12 +62,16 @@ I made a small bash script to help myself update these servers, you can [check i
 
 Unzip the content of the file inside the directory where *SteamCMD* is installed. Also, make the script executable with:
 
-    chmod +x update.sh
+``` text
+chmod +x update.sh
+```
 
 ### Script Usage
 
 To run the updater, use:
 
-    ./update.sh server_name username
+``` text
+./update.sh server_name username
+```
 
-If the *username* is empty, the script will run with anonymous as the username. The *server_name* should correspond to a file inside the `./scripts` folder.
+If the *username* is empty, the script will run with anonymous as the username. The *server_name* should correspond to a file inside the `./scripts` folder. Keep in mind that the script takes into account that the username in which the server is installed is `steam`, if this is different for you you're free to change the script to suit your needs.
