@@ -2,7 +2,9 @@
 
 The following bots will be installed in a separate user space.
 
-    sudo adduser --disabled-login discord
+``` text
+sudo adduser --disabled-login discord
+```
 
 ## Requirements
 

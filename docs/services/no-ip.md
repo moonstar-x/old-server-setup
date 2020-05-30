@@ -6,12 +6,14 @@
 
 To install this just follow this chain of commands:
 
-    cd /usr/local/src/
-    sudo wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
-    sudo tar xf noip-duc-linux.tar.gz
-    cd noip-2.1.9-1/
-    sudo make install
-    cd .. && sudo rm -rf noip*
+``` text
+cd /usr/local/src/
+sudo wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
+sudo tar xf noip-duc-linux.tar.gz
+cd noip-2.1.9-1/
+sudo make install
+cd .. && sudo rm -rf noip*
+```
 
 This last command will ask for your login and password for the NO-IP site, it'll then ask you which of your hosts you want to update and in which interval.
 
@@ -19,23 +21,29 @@ This last command will ask for your login and password for the NO-IP site, it'll
 
 We finally need to create a *systemctl* service so it can autostart on system boot. We make the service file with:
 
-    sudo nano /etc/systemd/system/noip2.service
+``` text
+sudo nano /etc/systemd/system/noip2.service
+```
 
 Add the following text to the editor and save the file.
 
-    [Unit]
-    Description=No-IP Dynamic DNS Update Client
-    After=network.target
+``` text
+[Unit]
+Description=No-IP Dynamic DNS Update Client
+After=network.target
 
-    [Service]
-    Type=forking
-    ExecStart=/usr/local/bin/noip2
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/noip2
 
-    [Install]
-    WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
+```
 
 Lastly, to enable the service:
 
-    systemctl daemon-reload
-    systemctl enable noip2.service
-    systemctl start noip2.service
+``` text
+systemctl daemon-reload
+systemctl enable noip2.service
+systemctl start noip2.service
+```

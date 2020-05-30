@@ -8,13 +8,13 @@
 
 For a better organization, we'll create an user for **Gitea**:
 
-```
+``` text
 sudo adduser --disabled-login git
 ```
 
 Since we'll do the initial setup from an external machine, we'll open the port `3000` to access the web interface.
 
-```
+``` text
 sudo ufw allow 3000/tcp
 ```
 
@@ -22,20 +22,20 @@ sudo ufw allow 3000/tcp
 
 Also, **Gitea** will require a database, for this, we'll use **PostgreSQL**. To install it, run:
 
-```
+``` text
 sudo apt-get install postgresql
 ```
 
 This will create a user called `postgres`, we'll need to change to that user and run **PostgreSQL**:
 
-```
+``` text
 sudo su postgres
 psql
 ```
 
 Inside here, we'll run the commands to create the database:
 
-```mysql
+``` mysql
 CREATE USER gitea WITH PASSWORD '$password';
 CREATE DATABASE gitea OWNER gitea;
 \q
@@ -48,21 +48,21 @@ CREATE DATABASE gitea OWNER gitea;
 
 Change to the `git` user and create a `gitea` folder inside its home directory.
 
-```
+``` text
 sudo -iu git
 mkdir ~/gitea && cd ~/gitea
 ```
 
 We can now download the **Gitea** binary (to this date, the latest version is `1.8.1`) and make it executable.
 
-```
+``` text
 wget -O gitea https://dl.gitea.io/gitea/1.8.1/gitea-1.8.1-linux-amd64
 chmod +x gitea
 ```
 
 To start **Gitea**, simply run:
 
-```
+``` text
 ./gitea web
 ```
 
@@ -74,13 +74,13 @@ To access **Gitea**, open up an Internet browser and go to the IP of the machine
 
 We want **Gitea** to run on system startup, for this, we'll create a *systemd* service:
 
-```
+``` text
 sudo nano /etc/systemd/system/gitea.service
 ```
 
 Paste the following inside the text editor (assuming you named the **Gitea** user `git`).
 
-```
+``` text
 [Unit]
 Description=Gitea 
 After=syslog.target
@@ -103,7 +103,7 @@ WantedBy=multi-user.target
 
 We can now initialize this service with:
 
-```
+``` text
 sudo systemd enable gitea.service
 sudo systemd start gitea.service
 ```
@@ -116,7 +116,7 @@ We'll use **nginx** to host the service. Since we have other web services runnin
 
 To install **nginx**, run:
 
-```
+``` text
 sudo apt-get install nginx
 ```
 
@@ -124,13 +124,13 @@ sudo apt-get install nginx
 
 To configure the *virtual host*, create a *gitea* configuration file with the following command:
 
-```
+``` text
 sudo nano /etc/nginx/sites-enabled/gitea
 ```
 
 Inside the text editor, paste the following:
 
-```
+``` text
 server {
     listen 80;
     server_name <your-domain>;
@@ -158,7 +158,7 @@ sudo service nginx reload
 
 While the **Gitea** web configuration is pretty good, we still need to manually change certain things from the configuration file like the domain through which you access **Gitea**. To do this, change to the `git` user and edit the configuration file:
 
-```
+``` text
 sudo -iu git
 nano ~/gitea/custom/app.ini
 ```
@@ -171,7 +171,7 @@ nano ~/gitea/custom/app.ini
 
 To change the favicon of the site, create the following folder:
 
-```
+``` text
 mkdir -p ~/gitea/custom/public/img
 ```
 
@@ -185,7 +185,7 @@ In here, paste the image that you want to use as the favicon and rename it to `f
 
 To install it, simply run:
 
-```
+``` text
 sudo apt-get install fail2ban
 ```
 
@@ -193,27 +193,27 @@ sudo apt-get install fail2ban
 
 We need to create a filter first.
 
-```
+``` text
 sudo nano /etc/fail2ban/filter.d/gitea.conf
 ```
 
 Inside the text editor, paste the following:
 
-```
+``` text
 [Definition]
 failregex = .*Failed authentication attempt for .* from <HOST>
-ignoreregex = 
+ignoreregex =
 ```
 
 We now need to create the jail definition.
 
-```
+``` text
 sudo nano /etc/fail2ban/jail.d/jail.local
 ```
 
 Inside the text editor, paste the following:
 
-```
+``` text
 [gitea]
 enabled = true
 port = http,https
@@ -227,7 +227,7 @@ action = iptables-allports
 
 Now, restart the **Fail2Ban** service.
 
-```
+``` text
 sudo service fail2ban restart
 ```
 
@@ -239,7 +239,7 @@ Since we want to use **HTTPS** to access our **Gitea** service, we'll need some 
 
 To install **certbot**, run the following:
 
-```
+``` text
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:certbot/certbot
 sudo apt-get update
@@ -250,7 +250,7 @@ sudo apt-get install python-certbot-nginx
 
 To run **certbot**, use the following command:
 
-```
+``` text
 sudo certbot --nginx
 ```
 
@@ -262,13 +262,13 @@ Since the certificate only lasts for about 10 days, we'll need to renew periodic
 
 Create the service file with:
 
-```
+``` text
 sudo nano /etc/systemd/system/certbot-renewal.service
 ```
 
 And paste the following on the text editor:
 
-```
+``` text
 [Unit]
 Description=Certbot Renewal
 
@@ -278,13 +278,13 @@ ExecStart=/usr/bin/certbot renew
 
 Now, create the timer file with:
 
-```
+``` text
 sudo nano /etc/systemd/system/certbot-renewal.timer
 ```
 
 And paste the following on the editor:
 
-```
+``` text
 [Unit]
 Description=Timer for Certbot Renewal
 
@@ -298,7 +298,7 @@ WantedBy=multi-user.target
 
 Enable the timer with:
 
-```
+``` text
 sudo systemctl enable certbot-renewal.timer
 sudo systemctl start certbot-renewal.timer
 ```

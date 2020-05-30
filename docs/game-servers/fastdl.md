@@ -21,60 +21,66 @@ After that, use an FTP client (Filezilla and WinSCP are very good). Connect to y
 
 Inside you'll find a folder called `public_html`, access it and create a folder for each of your games. Inside each folder you should create the following folder structure for **Source** games:
 
-    <source_gamename>
-    │
-    └───maps
-    |   |   file.example
-    |   |   ...
-    │
-    └───materials
-    |   |   file.example
-    |   |   ...
-    │
-    └───models
-    |   |   file.example
-    |   |   ...
-    │
-    └───resource
-    |   |   file.example
-    |   |   ...
-    │
-    └───sound
-    |   |   file.example
-    |   |   ...
+``` text
+<source_gamename>
+│
+└───maps
+|   |   file.example
+|   |   ...
+│
+└───materials
+|   |   file.example
+|   |   ...
+│
+└───models
+|   |   file.example
+|   |   ...
+│
+└───resource
+|   |   file.example
+|   |   ...
+│
+└───sound
+|   |   file.example
+|   |   ...
+```
 
 For **GoldSrc** games:
 
-    <goldsrc_gamename>
-    │
-    └───gfx
-    |   |   file.example
-    |   |   ...
-    │
-    └───maps
-    |   |   file.example
-    |   |   ...
-    │
-    └───models
-    |   |   file.example
-    |   |   ...
-    │
-    └───resource
-    |   |   file.example
-    |   |   ...
-    │
-    └───sound
-    |   |   file.example
-    |   |   ...
-    │
-    └───sprites
-    |   |   file.example
-    |   |   ...
+``` text
+<goldsrc_gamename>
+│
+└───gfx
+|   |   file.example
+|   |   ...
+│
+└───maps
+|   |   file.example
+|   |   ...
+│
+└───models
+|   |   file.example
+|   |   ...
+│
+└───resource
+|   |   file.example
+|   |   ...
+│
+└───sound
+|   |   file.example
+|   |   ...
+│
+└───sprites
+|   |   file.example
+|   |   ...
+```
 
 After uploading all your content to your *FTP* server, head over to the *server.cfg* for the corresponding game and add the following lines to it:
 
-    sv_allowdownload 1
-    sv_allowupload 1
-    sv_downloadurl "https://<sitename>.000webhostapp.com/<gamename>/"
+``` text
+sv_allowdownload 1
+sv_allowupload 1
+sv_downloadurl "https://<sitename>.000webhostapp.com/<gamename>/"
+```
 
 Now every time a player connects to your server and needs to download the required content they'll download it through the *FastDL* instead of the server, putting less strain on the game server this way.

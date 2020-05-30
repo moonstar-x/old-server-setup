@@ -12,38 +12,54 @@ To install the **Assetto Corsa** dedicated server we'll need to start SteamCMD u
 
 First we'll change to our *steam* user and go to where our SteamCMD is located.
 
-    sudo -iu steam
-    cd ~/Steam
+``` text
+sudo -iu steam
+cd ~/Steam
+```
 
 We'll run SteamCMD with the following argument:
 
-    ./steamcmd.sh +@sSteamCmdForcePlatformType windows
+``` text
+./steamcmd.sh +@sSteamCmdForcePlatformType windows
+```
 
 We can now login with our username, we'll be prompted for our password and two factor code if enabled.
 
-    login <username>
+``` text
+login <username>
+```
 
 We'll change the installation folder:
 
-    force_install_dir /home/steam/assettocorsa
+``` text
+force_install_dir /home/steam/assettocorsa
+```
 
 And now we download the required files.
 
-    app_update 302550
+``` text
+app_update 302550
+```
 
 Once we finish downloading we can exit **SteamCMD** and go to the folder where **Assetto Corsa** is installed.
 
-    cd ~/assettocorsa
+``` text
+cd ~/assettocorsa
+```
 
 ### Configuration
 
 The configuration of the server is pretty self-explanatory in terms of settings. To change the hostname, the track, the cars, etc.. Edit the following file:
 
-    nano cfg/server_cfg.ini
+``` text
+nano cfg/server_cfg.ini
+```
 
 To change the car list:
 
-    nano cfg/entry_list.ini
+``` text
+nano cfg/entry_list.ini
+```
 
 For an easier way to create these configuration files I recommend you to use the Windows version of the server to generate these configs on a GUI window and then transfer the *.ini* files generated to the server.
 
@@ -51,9 +67,11 @@ Make sure your ports are forwarded and that the firewall isn't blocking any conn
 
 We'll add some firewall rules as a sudoer user (the administrator user for example):
 
-    sudo ufw allow 8081/tcp
-    sudo ufw allow 9600/tcp
-    sudo ufw allow 9600/udp
+``` text
+sudo ufw allow 8081/tcp
+sudo ufw allow 9600/tcp
+sudo ufw allow 9600/udp
+```
 
 !!! note "Notice:"
     If you wish to run multiple servers or multiple configurations it is advised to reinstall the server in a different location and run a different acServer executable, after all, the server file size isn't too big.
@@ -64,11 +82,13 @@ If you want to add mods to the server, you can get them from [here](https://asse
 
 You can start up the server with:
 
-    ./acServer
+``` text
+./acServer
+```
 
 ## Windows Virtual Machine Alternative
 
-The biggest downside of running the server through a Windows VM is the "wasted" disk space, since you need to count the Windows instalallation and the Assetto Corsa game binaries which both summed take around 40 GB. The great advantage that this has though, is the ease of configuration for custom content and multiple server configurations thanks to the nice server manager GUI. For this reason, I have opted for this option but you can always choose the one you prefer.
+The biggest downside of running the server through a Windows VM is the "wasted" disk space, since you need to count the Windows installation and the Assetto Corsa game binaries which both summed take around 40 GB. The great advantage that this has though, is the ease of configuration for custom content and multiple server configurations thanks to the nice server manager GUI. For this reason, I have opted for this option but you can always choose the one you prefer.
 
 ### Installing the Virtual Machine
 
@@ -76,32 +96,42 @@ For the virtual machine we're going to use VirtualBox, I'm assuming you already 
 
 We're going to install Windows 7 Home Basic, we're going to give it 2GB or RAM, 60GB of disk space and access to 2 CPU cores. We're going to do this on the *steam* user, for this, we'll need to add the *steam* user to the *vboxusers* group.
 
-    sudo adduser steam vboxusers
+``` text
+sudo adduser steam vboxusers
+```
 
 Now, we'll change to the *steam* user.
 
-    sudo -iu steam
+``` text
+sudo -iu steam
+```
 
 To set-up the VM (make sure to change the settings to your needs):
 
-    vboxmanage createvm --name "Assetto-win" --register
-    vboxmanage modifyvm "Assetto-win" --memory 2048 --acpi on --ioapic on --boot1 dvd --nic1 bridged --bridgeadapter1 enp0s3 --nictype1 82540EM --vram 128 --cpus 2 --vrde on
-    vboxmanage createhd --filename ~/VirtualBox\ VMs/Assetto-win/assetto-win.vdi --size 100000
-    vboxmanage storagectl "Assetto-win" --name "IDE Controller" --add ide
-    vboxmanage storageattach "Assetto-win" --storagectl "IDE Controller" --port 0 --device 0 --type hdd --medium ~/VirtualBox\ VMs/Assetto-win/assetto-win.vdi
-    vboxmanage storageattach "Assetto-win" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium ~/Downloads/Windows7.iso
-    vboxheadless --startvm “Assetto-win”
+``` text
+vboxmanage createvm --name "Assetto-win" --register
+vboxmanage modifyvm "Assetto-win" --memory 2048 --acpi on --ioapic on --boot1 dvd --nic1 bridged --bridgeadapter1 enp0s3 --nictype1 82540EM --vram 128 --cpus 2 --vrde on
+vboxmanage createhd --filename ~/VirtualBox\ VMs/Assetto-win/assetto-win.vdi --size 100000
+vboxmanage storagectl "Assetto-win" --name "IDE Controller" --add ide
+vboxmanage storageattach "Assetto-win" --storagectl "IDE Controller" --port 0 --device 0 --type hdd --medium ~/VirtualBox\ VMs/Assetto-win/assetto-win.vdi
+vboxmanage storageattach "Assetto-win" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium ~/Downloads/Windows7.iso
+vboxheadless --startvm “Assetto-win”
+```
 
 At this point, the VM should be successfully running, to control it, connect to the host's IP through an RDP connection (such as Microsoft Remote Desktop). Continue with the Windows installation process. Once the installation is complete, we'll install the VirtualBox Guest Additions, in the host, run the following command:
 
-    vboxmanage storageattach "Assetto-win" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium /usr/share/virtualbox/VBoxGuestAdditions.iso
+``` text
+vboxmanage storageattach "Assetto-win" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium /usr/share/virtualbox/VBoxGuestAdditions.iso
+```
 
 The installation drive should show up on *My Computer*, install it and restart the guest.
 
 Once rebooted and while the guest is running, type the following commands on the host:
 
-    vboxmanage controlvm "Assetto-win" setvideomodehint 1280 720 32
-    vboxmanage storageattach "Assetto-win" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium emptydrive
+``` text
+vboxmanage controlvm "Assetto-win" setvideomodehint 1280 720 32
+vboxmanage storageattach "Assetto-win" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium emptydrive
+```
 
 ### Installing the Server
 
@@ -115,7 +145,9 @@ For *SteamCMD*, we'll create a folder in our main drive `C:\steamcmd` and we'll 
 
 Now that *SteamCMD* is in our *Path*, we can easily run it through a command line prompt directly with the `steamcmd` command. We'll use a small *bat* script to download and update *Assetto Corsa*. Open up a notepad and save it as `update_assetto.bat`. Inside the text editor add the following text (make sure to replace your *%username%* with your actual username):
 
-    @echo off
-    steamcmd +login %username% +force_install_dir c:\assettocorsa +app_update 244210 +quit
+``` shell
+@echo off
+steamcmd +login %username% +force_install_dir c:\assettocorsa +app_update 244210 +quit
+```
 
 Running this script will automatically download the server files. To run the server open up `C:\assettocorsa\server\acServerManager.exe` and configure your server through the GUI. To add custom content, add it to the `C:\assettocorsa\` directory.
