@@ -137,3 +137,202 @@ sudo certbot --nginx
 ```
 
 If you haven't enabled `certbot` or configured it yet, check out this part of the guide: [Enabling HTTPS for Gitea](./gitea.md#using-certbot).
+
+## Setting-up Discord Notifications
+
+One of the cool things about *Tautulli* is that it can send notifications to various types of channels about certain events (an user started streaming something, new media has been added, plex server is down...). With the help of webhooks, we'll set-up some notifications for our Discord.
+
+Firstly, on our Discord, we must right click the name of the text channel where we want to set-up our notifications. Select `Edit Channel` and head over to `Webhooks`. Here we'll click on `Create Webhook` and modify the Webhook user to fit our needs (name and profile picture). Finally we'll copy the `webhook url` which we'll need in *Tautulli*.
+
+Now we head over to *Tautulli* and go to the `Settings` and then to `Notification Agents`. We'll now `Add a new notification agent` and select `Webhook`.
+
+!!! note
+    Keep in mind that there's an option that says `Discord` but it is a bit limited (albeit easier to set-up). We'll stick to `Webhook` for a more customized notification message.
+
+Under `configuration`, in `Webhook URL`, paste the URL that you copied previously and keep `Webhook Method` set to `POST`. Enter the `Triggers` tab and select the ones that interest you the most. For this guide, we'll enable `Plex Server Down`, `Plex Server Back Up`, `Plex Remote Access Down`, `Plex Remote Access Back Up` and `Recently Added`.
+
+Now head to the `Data` tab, here you'll need to put the `JSON` body that will be sent to Discord to handle the messages.
+
+!!! tip
+    For a detailed guide on how to build your `JSON` bodies to send as Webhooks, check out [this guide](https://birdie0.github.io/discord-webhooks-guide/discord_webhook.html).
+
+Once you've built your `JSON` body, add it to the `JSON Data` text-box and leave the `JSON Headers` empty.
+
+### JSON Body Examples
+
+These notification messages should be customized to your needs. Here's some examples that I currently use.
+
+#### Plex Server Down
+
+* Preview:
+
+![Plex Server Down Preview](https://i.imgur.com/QICK7l8.png)
+
+* `JSON` body:
+
+``` json
+{
+  "embeds": [
+    {
+      "color": 15048717,
+      "fields": [
+        {
+          "name": "Plex Status",
+          "value": "The Plex Server is currently down! :sob:"
+        }
+      ],
+      "footer": {
+         "text": "{server_name} on {server_platform} - {server_version}"
+      }
+    }  
+  ]
+}
+```
+
+#### Plex Server Back Up
+
+* Preview:
+
+![Plex Server Back Up Preview](https://i.imgur.com/2E1zN27.png)
+
+* `JSON` body:
+
+``` json
+{
+  "embeds": [
+    {
+      "color": 15048717,
+      "fields": [
+        {
+          "name": "Plex Status",
+          "value": "The Plex Server is back up! :partying_face:"
+        }
+      ],
+      "footer": {
+          "text": "{server_name} on {server_platform} - {server_version}"
+      }
+    }  
+  ]
+}
+```
+
+#### Plex Remote Access Down
+
+* Preview:
+
+![Plex Remote Access Down Preview](https://i.imgur.com/JWiqjJb.png)
+
+* `JSON` body:
+
+``` json
+{
+  "embeds": [
+    {
+      "color": 15048717,
+      "fields": [
+        {
+          "name": "Plex Remote Access Status",
+          "value": "The Plex Server is currently down! :sob: \n {remote_access_reason}"
+        }
+      ],
+      "footer": {
+        "text": "{server_name} on {server_platform} - {server_version}"
+      }
+    }  
+  ]
+}
+```
+
+#### Plex Remote Access Back Up
+
+* Preview:
+
+![Plex Remote Access Back Up Preview](https://i.imgur.com/679DpSE.png)
+
+* `JSON` body:
+
+``` json
+{
+  "embeds": [
+    {
+      "color": 15048717,
+      "fields": [
+        {
+          "name": "Plex Remote Access Status",
+          "value": "The Plex Server is back up! :partying_face:"
+        }
+      ],
+      "footer": {
+        "text": "{server_name} on {server_platform} - {server_version}"
+      }
+    }  
+  ]
+}
+```
+
+#### Recently Added
+
+* Preview:
+
+![Recently Added Preview Movie](https://i.imgur.com/l6ilHNC.png)
+![Recently Added Preview Music](https://i.imgur.com/4Cem8qA.png)
+
+* `JSON` body:
+
+``` json
+{
+  "embeds": [
+    {
+      "title": "Update ({current_day}/{current_month}/{current_year}):",
+      <movie>"description": "New movie added!",</movie><show>"description": "New show added!",</show><season>"description": "New season added!",</season><album>"description": "New album added!",</album>
+      "color": 15048717,
+      "fields": [
+        <movie>
+        {
+          "name": "Movie Name:",
+          "value": "{title} ({year})"
+        },
+        </movie>
+        <show>
+        {
+          "name": "Show Name:",
+          "value": "{show_name}"
+        },
+        </show>
+        <season>
+        {
+          "name": "Show Name:",
+          "value": "{show_name}"
+        },
+        </season>
+        <album>
+        {
+          "name": "Album Name:",
+          "value": "{album_name} by {artist_name}"
+        },
+        </album>
+        {
+          "name": "Library:",
+          "value": ":o: {library_name}",
+          "inline": true
+        },
+        {
+          <movie>"name": "Watch Now",</movie><show>"name": "Watch Now",</show><season>"name": "Watch Now",</season><album>"name": "Listen Now",</album>
+          "value": "[Plex Web]({plex_url})",
+          "inline": true
+        }
+      ],
+      "thumbnail": {
+        "url": "{poster_url}"
+      },
+      "footer": {
+        "text": "{server_name} on {server_platform} - {server_version}"
+      }
+    }  
+  ]
+}
+```
+
+!!! note
+    This one requires the following `Conditions`:
+    > **Media Type** `is` **movie** `or` **show** `or` **season** `or` **album**
