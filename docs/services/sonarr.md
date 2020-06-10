@@ -128,7 +128,7 @@ And finally, we'll restart *nginx*.
 sudo systemctl restart nginx.service
 ```
 
-After setting-up the reverse proxy, me must also set the base URL for *Sonarr* to work properly. Run the following command:
+After setting-up the reverse proxy, we must also set the base URL for *Sonarr* to work properly. Run the following command:
 
 ``` text
 sudo nano /home/sonarr/.config/NzbDrone/config.xml
