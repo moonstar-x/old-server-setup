@@ -109,7 +109,7 @@ server {
     server_name <your-domain>;
 
     location /radarr {
-        proxy_pass http://localhost:8989;
+        proxy_pass http://localhost:7878;
     }
 
     proxy_set_header Host $host;
