@@ -49,6 +49,7 @@ nav:
     - Samba: services/samba.md
     - Transmission: services/transmission.md
     - Sonarr: services/sonarr.md
+    - Radarr: services/radarr.md
   - Game Servers:
     - SteamCMD: game-servers/steamcmd.md
     - Arma 3: game-servers/arma3.md
