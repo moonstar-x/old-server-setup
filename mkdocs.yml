@@ -48,6 +48,7 @@ nav:
     - Tautulli: services/tautulli.md
     - Samba: services/samba.md
     - Transmission: services/transmission.md
+    - Sonarr: services/sonarr.md
   - Game Servers:
     - SteamCMD: game-servers/steamcmd.md
     - Arma 3: game-servers/arma3.md
