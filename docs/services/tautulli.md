@@ -47,7 +47,7 @@ sudo nano /etc/systemd/system/tautulli.service
 
 And in the text editor, paste the following:
 
-``` text
+``` bash
 [Unit]
 Description=Tautulli - Stats for Plex Media Server usage
 Wants=network-online.target

@@ -57,7 +57,7 @@ sudo nano /etc/systemd/system/radarr.service
 
 And paste the following in the editor:
 
-``` text
+``` bash
 [Unit]
 Description=Radarr Daemon
 After=syslog.target network.target

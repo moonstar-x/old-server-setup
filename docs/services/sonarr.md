@@ -52,7 +52,7 @@ sudo nano /etc/systemd/system/sonarr.service
 
 And paste the following in the editor:
 
-``` text
+``` bash
 [Unit]
 Description=Sonarr Daemon
 After=network.target

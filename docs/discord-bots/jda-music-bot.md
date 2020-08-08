@@ -81,7 +81,7 @@ sudo nano /lib/systemd/system/discord_jda_musicbot.service
 
 Insert the following in the editor:
 
-``` text
+``` bash
 [Unit]
 Description=Discord JDA Music Bot
 After=network.target

@@ -38,7 +38,7 @@ sudo nano /lib/systemd/system/teamspeak.service
 
 And in the text editor, paste the following and save.
 
-``` text
+``` bash
 [Unit]
 Description=TeamSpeak 3 Server
 After=network.target

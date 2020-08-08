@@ -61,7 +61,7 @@ sudo nano /etc/systemd/system/discord_247_music.service
 
 Insert the following in the editor:
 
-``` text
+``` bash
 [Unit]
 Description=Discord 24-7 Music Bot
 After=network.target

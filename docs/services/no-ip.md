@@ -27,7 +27,7 @@ sudo nano /etc/systemd/system/noip2.service
 
 Add the following text to the editor and save the file.
 
-``` text
+``` bash
 [Unit]
 Description=No-IP Dynamic DNS Update Client
 After=network.target

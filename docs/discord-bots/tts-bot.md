@@ -56,7 +56,7 @@ sudo nano /etc/systemd/system/discord_tts.service
 
 Inside the editor, paste the following text:
 
-``` text
+``` bash
 [Unit]
 Description=Discord TTS
 After=network.target

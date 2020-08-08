@@ -51,7 +51,7 @@ sudo nano /etc/systemd/system/lidarr.service
 
 And paste the following in the editor:
 
-``` text
+``` bash
 [Unit]
 Description=Lidarr Daemon
 After=network.target

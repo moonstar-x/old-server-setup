@@ -61,7 +61,7 @@ sudo nano /etc/systemd/system/discord_gcs_variety.service
 
 Insert the following in the editor:
 
-``` text
+``` bash
 [Unit]
 Description=Discord Greencoast Studios Bot
 After=network.target

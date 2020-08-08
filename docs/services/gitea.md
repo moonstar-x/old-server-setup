@@ -80,7 +80,7 @@ sudo nano /etc/systemd/system/gitea.service
 
 Paste the following inside the text editor (assuming you named the **Gitea** user `git`).
 
-``` text
+``` bash
 [Unit]
 Description=Gitea 
 After=syslog.target
@@ -270,7 +270,7 @@ sudo nano /etc/systemd/system/certbot-renewal.service
 
 And paste the following on the text editor:
 
-``` text
+``` bash
 [Unit]
 Description=Certbot Renewal
 
@@ -286,7 +286,7 @@ sudo nano /etc/systemd/system/certbot-renewal.timer
 
 And paste the following on the editor:
 
-``` text
+``` bash
 [Unit]
 Description=Timer for Certbot Renewal
 
