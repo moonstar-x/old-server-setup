@@ -16,7 +16,7 @@ After executing these two commands, we will have access to the `npm` and `node` 
 To install the TTS bot, we will first clone the project from its repo from the **discord** user:
 
 ``` text
-sudo -i -u discord
+sudo -iu discord
 git clone https://github.com/moonstar-x/discord-tts-bot.git
 ```
 
