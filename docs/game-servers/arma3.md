@@ -188,7 +188,7 @@ onUnsignedData = "kick (_this select 0)";
 onHackeddData = "kick (_this select 0)";
 
 headlessClients[] = {"127.0.0.1"};
-localClientp[] = {"127.0.0.1"};
+localClient[] = {"127.0.0.1"};
 ```
 
 As a side note, if you need to run servers with multiple configurations, you can always create more config files and use them at the server start.
@@ -270,6 +270,16 @@ As an example, for the **CBA_A3** mod:
 ``` text
 ln -s ~/arma3mods/steamapps/workshop/content/107410/450814997 ~/arma3/@CBA_A3
 ```
+
+Finally, we'll also need to copy the keys for each mod into the `keys` folder inside the server directory. Mod keys will be in the `~/arma3mods/steamapps/workshop/content/107410/\<MOD_ID\>/keys` (sometimes the last folder will be `key` rather than `keys`). These keys will have a `.bikey` extension, and will need to be copied to `~/arma3/keys`. Every time a mod gets updated, the keys should also be updated (replace the old ones with the new ones).
+
+!!! tip
+    We can also make some symlinks to simplify accessing these folders:
+
+        mkdir ~/arma3-data
+        mkdir ~/arma3-data/workshop && mkdir ~/arma3-data/keys
+        ln -s ~/arma3mods/steamapps/workshop/content/107410 ~/arma3-data/workshop
+        ln -s ~/arma3/keys ~/arma3-data/keys
 
 ### Updating Mods
 
@@ -395,4 +405,61 @@ As per always, the script must be made executable:
 
 ``` text
 chmod +x <script_name>.sh
+```
+
+## Headless Client
+
+A headless client is an instance of the game with no interface. The idea of having a headless client on a server is to reduce the load on the server process by taking control of the AI processing. This will (ideally) make the server run better and the AI more responsive since their processing will be done somewhere else, their reaction times will be much quicker.
+
+Setting up a headless client is a trivial task. The first thing that should be done is modify the server config (`.cfg` file) to allow our headless client.
+
+In `server.cfg` (or whichever it is the name of your `.cfg` file), add or edit the following lines with the IP address of your headless client:
+
+```text
+headlessClients[] = {"127.0.0.1"};
+localClient[] = {"127.0.0.1"};
+```
+
+!!! note
+    In this case, our headless client will be running in the same machine as the server, which means that `127.0.0.1` will be used. You can add as many of these as you want.
+
+Once the server config allows the headless client, we'll create a run script to start the headless client.
+
+``` bash
+#!/bin/bash
+./arma3server -client -connect=SERVER_IP -password=SERVER_PASSWORD -mod=@MOD1\;@MOD2...
+```
+
+!!! note
+    You can omit the `password` directive if the server you're connecting to has no password. You can also omit the `mod` directive if the server has no mods.
+
+Finally, make the script executable:
+
+``` text
+chmod +x start_hc.sh
+```
+
+Now you're ready. Start the server and then the headless client, which will connect directly and automatically offload the AI processing (if the mission implements headless clients properly).
+
+### Start Server and Headless Client Script
+
+If you wish to run them both directly, you can create the following script:
+
+``` bash
+#!/bin/bash
+echo "Launching server..."
+screen -dmS arma3-server /bin/bash -c "./start_antistasi.sh"
+
+echo "Launching Headless Client..."
+screen -dmS arma3-hc /bin/bash -c "./hc_antistasi.sh"
+```
+
+!!! note
+    Replace `"./start_antistasi.sh"` with the name of the server start script and `"./hc_antistasi.sh"` with the name of the headless client start script.
+
+This will start both processes in two different `screen` windows. You can switch to them by using:
+
+``` text
+screen -rd arma3-server
+screen -rd arma3-hc
 ```
