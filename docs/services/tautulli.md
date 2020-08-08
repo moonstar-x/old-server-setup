@@ -142,14 +142,14 @@ If you haven't enabled `certbot` or configured it yet, check out this part of th
 
 ## Setting-up Discord Notifications
 
-One of the cool things about *Tautulli* is that it can send notifications to various types of channels about certain events (an user started streaming something, new media has been added, plex server is down...). With the help of webhooks, we'll set-up some notifications for our Discord.
+One of the cool things about *Tautulli* is that it can send notifications to various types of channels about certain events (an user started streaming something, new media has been added, plex server is down...). With the help of webhooks, we'll set up some notifications for our Discord.
 
-Firstly, on our Discord, we must right click the name of the text channel where we want to set-up our notifications. Select `Edit Channel` and head over to `Webhooks`. Here we'll click on `Create Webhook` and modify the Webhook user to fit our needs (name and profile picture). Finally we'll copy the `webhook url` which we'll need in *Tautulli*.
+Firstly, on our Discord, we must right click the name of the text channel where we want to set up our notifications. Select `Edit Channel` and head over to `Webhooks`. Here we'll click on `Create Webhook` and modify the Webhook user to fit our needs (name and profile picture). Finally we'll copy the `webhook url` which we'll need in *Tautulli*.
 
 Now we head over to *Tautulli* and go to the `Settings` and then to `Notification Agents`. We'll now `Add a new notification agent` and select `Webhook`.
 
 !!! note
-    Keep in mind that there's an option that says `Discord` but it is a bit limited (albeit easier to set-up). We'll stick to `Webhook` for a more customized notification message.
+    Keep in mind that there's an option that says `Discord` but it is a bit limited (albeit easier to set up). We'll stick to `Webhook` for a more customized notification message.
 
 Under `configuration`, in `Webhook URL`, paste the URL that you copied previously and keep `Webhook Method` set to `POST`. Enter the `Triggers` tab and select the ones that interest you the most. For this guide, we'll enable `Plex Server Down`, `Plex Server Back Up`, `Plex Remote Access Down`, `Plex Remote Access Back Up` and `Recently Added`.
 

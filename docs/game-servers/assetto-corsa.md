@@ -106,7 +106,7 @@ Now, we'll change to the *steam* user.
 sudo -iu steam
 ```
 
-To set-up the VM (make sure to change the settings to your needs):
+To set up the VM (make sure to change the settings to your needs):
 
 ``` text
 vboxmanage createvm --name "Assetto-win" --register

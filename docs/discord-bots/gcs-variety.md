@@ -43,7 +43,7 @@ In here, change the settings to your own liking.
 !!! tip
     If you need help looking for the voice channel ID, check out [this guide](https://github.com/moonstar-x/discord-downtime-notifier/wiki/Getting-User,-Channel-and-Server-IDs).
 
-After everything is set-up, you can start up the bot with:
+After everything is set up, you can start up the bot with:
 
 ``` text
 npm start

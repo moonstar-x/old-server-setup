@@ -40,7 +40,7 @@ nano settings.json
 
 In here, change the settings to your own liking.
 
-After everything has been set-up, you can start the bot by inputting:
+After everything has been set up, you can start the bot by inputting:
 
 ``` text
 npm start
