@@ -12,3 +12,4 @@ Here's a list of the ports used by the game servers currently installed on the s
 | No More Room in Hell | 27025 |                 |
 | Sven-Coop            | 27030 |                 |
 | TeamSpeak 3          | 9987  |                 |
+| Valheim              | 2456  |                 |
