@@ -70,9 +70,6 @@ nav:
     - 24/7 Music Bot: discord-bots/24-7-musicbot.md
     - Free Games Notifier Bot: discord-bots/free-games-notifier.md
     - Text-to-Speech Bot: discord-bots/tts-bot.md
-  - Other Bots:
-    - Setting Up: other-bots/setting-up.md
-    - Twitter Today Is Bot: other-bots/twitter-today-is.md
 
 # Theme Customization
 theme:
