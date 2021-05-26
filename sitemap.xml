@@ -4,10 +4,6 @@
      <lastmod>2021-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://moonstar.greencoaststudios.com/server-setup/status/</loc>
-     <lastmod>2021-05-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://moonstar.greencoaststudios.com/server-setup/setting-up/os-and-installation/</loc>
      <lastmod>2021-05-26</lastmod>
      <changefreq>daily</changefreq>
@@ -17,6 +13,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://moonstar.greencoaststudios.com/server-setup/setting-up/networking/</loc>
+     <lastmod>2021-05-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://moonstar.greencoaststudios.com/server-setup/setting-up/wireguard/</loc>
      <lastmod>2021-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -92,6 +92,10 @@
      <lastmod>2021-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://moonstar.greencoaststudios.com/server-setup/game-servers/valheim/</loc>
+     <lastmod>2021-05-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://moonstar.greencoaststudios.com/server-setup/game-servers/fastdl/</loc>
      <lastmod>2021-05-26</lastmod>
      <changefreq>daily</changefreq>
@@ -128,19 +132,11 @@
      <lastmod>2021-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://moonstar.greencoaststudios.com/server-setup/discord-bots/free-games-notifier/</loc>
+     <lastmod>2021-05-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://moonstar.greencoaststudios.com/server-setup/discord-bots/tts-bot/</loc>
-     <lastmod>2021-05-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://moonstar.greencoaststudios.com/server-setup/discord-bots/gcs-variety/</loc>
-     <lastmod>2021-05-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://moonstar.greencoaststudios.com/server-setup/other-bots/setting-up/</loc>
-     <lastmod>2021-05-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://moonstar.greencoaststudios.com/server-setup/other-bots/twitter-today-is/</loc>
      <lastmod>2021-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
