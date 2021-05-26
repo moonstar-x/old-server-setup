@@ -30,9 +30,7 @@ copyright: Copyright &copy; 2018 - 2020 moonstar-x
 
 # Navigation
 nav:
-  - Home:
-    - Introduction: index.md
-    - Guide Status: status.md
+  - Home: index.md
   - Setting Up:
     - OS and Installation: setting-up/os-and-installation.md
     - Packages and Programs: setting-up/packages-and-programs.md
