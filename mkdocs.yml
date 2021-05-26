@@ -37,6 +37,7 @@ nav:
     - OS and Installation: setting-up/os-and-installation.md
     - Packages and Programs: setting-up/packages-and-programs.md
     - Networking: setting-up/networking.md
+    - Wireguard: setting-up/wireguard.md
   - Services:
     - Teamspeak 3: services/teamspeak.md
     - NO-IP DUC: services/no-ip.md
